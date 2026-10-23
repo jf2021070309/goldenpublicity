@@ -1,0 +1,270 @@
+---
+// Footer.astro
+---
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Bio -->
+        <div class="footer-col">
+          <a href="/" class="footer-logo">
+            <img 
+              src="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2025/01/logo_surf_edecanes_footer-png.webp?resize=139%2C50&ssl=1" 
+              alt="Golden Publicity Footer Logo" 
+              width="139" 
+              height="50" 
+            />
+          </a>
+          <p class="footer-bio">
+            Más de 12 años de experiencia en todo tipo de eventos nos hacen ser una de las agencias más confiables en el centro y sur del país.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener" class="foot-soc" aria-label="TikTok">
+              <i class="fa fa-music"></i>
+            </a>
+            <a href="https://www.instagram.com/agenciasurf" target="_blank" rel="noopener" class="foot-soc" aria-label="Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/agenciasurf" target="_blank" rel="noopener" class="foot-soc" aria-label="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Cobertura -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Cobertura</h4>
+          <ul class="cobertura-list">
+            <li><i class="fa fa-check"></i> <strong>PUEBLA 💎</strong></li>
+            <li><i class="fa fa-check"></i> <strong>CDMX 💎</strong></li>
+            <li><i class="fa fa-check"></i> <strong>QUERÉTARO</strong></li>
+            <li><i class="fa fa-check"></i> <strong>CANCÚN</strong></li>
+            <li><i class="fa fa-check"></i> <strong>PLAYA DEL CARMEN</strong></li>
+            <li class="more-states"><i class="fa fa-check"></i> VARIOS ESTADOS MÁS</li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contacto -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Contacto</h4>
+          <div class="footer-contact-block">
+            <p><a href="mailto:contacto@agenciasurf.mx">contacto@agenciasurf.mx</a></p>
+            <p><i class="fa fa-phone"></i> CDMX: <a href="tel:5547873219">55.47.87.32.19</a></p>
+            <p><i class="fa fa-phone"></i> PUEBLA: <a href="tel:2212529626">22.12.52.96.26</a></p>
+          </div>
+
+          <h5 class="sub-contact-title">Nuevos talentos</h5>
+          <div class="footer-contact-block">
+            <p><a href="mailto:casting@agenciasurf.mx">casting@agenciasurf.mx</a></p>
+            <p><i class="fa fa-whatsapp"></i> <a href="https://wa.me/5212212529626" target="_blank" rel="noopener">22.12.52.96.26</a></p>
+          </div>
+
+          <h5 class="sub-contact-title">¿Algo interesante?</h5>
+          <div class="footer-contact-block">
+            <p><a href="mailto:colaboraciones@agenciasurf.mx">colaboraciones@agenciasurf.mx</a></p>
+          </div>
+        </div>
+
+        <!-- Col 4: Ubicación -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Ubicación</h4>
+          
+          <div class="location-item">
+            <h6>Golden Publicity Puebla</h6>
+            <p>
+              Priv. 43 A Oriente #2207<br />
+              Col. El Mirador, 72530<br />
+              Puebla, Pue.
+            </p>
+          </div>
+
+          <div class="location-item">
+            <h6>Golden Publicity CDMX</h6>
+            <p>
+              City Towers I – Int. 601<br />
+              Av. Popocatépetl 415<br />
+              Benito Juárez, 03310<br />
+              Ciudad de México, CDMX
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold bottom footer -->
+  <div class="footer-bottom">
+    <div class="container text-center">
+      <p>Derechos reservados | by Golden Publicity Studio | <a href="#contacto">Aviso de Privacidad</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+  }
+
+  .footer-top {
+    padding: 85px 0 60px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.1fr 1.1fr;
+    gap: 40px;
+  }
+
+  .footer-col-title {
+    font-size: 1.25rem;
+    color: #222222;
+    margin-bottom: 22px;
+    font-weight: 700;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .footer-bio {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 14px;
+  }
+
+  .foot-soc {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #444444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    transition: var(--transition-smooth);
+  }
+
+  .foot-soc:hover {
+    background: var(--color-accent);
+    color: #161616;
+    transform: translateY(-2px);
+  }
+
+  /* Cobertura list */
+  .cobertura-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cobertura-list li {
+    font-size: 0.92rem;
+    color: #333333;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cobertura-list li i {
+    color: var(--color-accent-hover);
+    font-size: 0.85rem;
+  }
+
+  .cobertura-list .more-states {
+    color: #888888;
+    font-size: 0.82rem;
+  }
+
+  /* Contact */
+  .footer-contact-block {
+    margin-bottom: 14px;
+    font-size: 0.92rem;
+    color: #555555;
+    line-height: 1.6;
+  }
+
+  .footer-contact-block a {
+    color: #333333;
+    transition: color 0.2s;
+  }
+
+  .footer-contact-block a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .footer-contact-block i {
+    color: var(--color-gold);
+    width: 18px;
+  }
+
+  .sub-contact-title {
+    font-size: 0.95rem;
+    color: #111111;
+    font-weight: 700;
+    margin: 16px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Location */
+  .location-item {
+    margin-bottom: 18px;
+  }
+
+  .location-item h6 {
+    font-size: 0.95rem;
+    color: #111111;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .location-item p {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.5;
+  }
+
+  /* Footer Bottom */
+  .footer-bottom {
+    background-color: var(--color-gold);
+    padding: 18px 0;
+    color: #161616;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .footer-bottom a {
+    color: #161616;
+    text-decoration: underline;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  @media (max-width: 992px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

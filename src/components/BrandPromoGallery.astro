@@ -1,0 +1,123 @@
+---
+// BrandPromoGallery.astro
+const eventImages = [
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento21.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento14.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento12-2.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento17.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento22.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento4-2.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento3-2.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento13.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento9-1.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento19.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento16.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento7-2.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento10-1.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento1.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento2-1.jpg?fit=770%2C770&ssl=1",
+  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento5-2.jpg?fit=770%2C770&ssl=1"
+];
+---
+
+<section class="brand-promo-section">
+  <div class="container text-center">
+    <span class="section-subtitle">ESTAMOS LISTOS PARA SURFEAR</span>
+    <h2 class="section-title">¿Cómo quieres promocionar tu marca?</h2>
+    <p class="section-lead">
+      A lo largo de los años hemos participado en todo tipo de activaciones de marca, expos, eventos deportivos, conciertos, pasarelas y campañas BTL. Siempre con el objetivo de lograr una participación de alto impacto porque estamos comprometidos con el servicio; pero sobre todo, agradecidos con grandes marcas que han y siguen confiando en nuestra experiencia como Agencia de edecanes y modelos.
+    </p>
+  </div>
+
+  <!-- Events Gallery Grid (4 columns, no spacing) -->
+  <div class="events-gallery">
+    {eventImages.map((src, i) => (
+      <div class="event-item">
+        <img src={src} alt={`Evento y Activación Surf #${i + 1}`} loading="lazy" />
+        <div class="event-overlay">
+          <i class="fa fa-instagram"></i>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="text-center gallery-cta">
+    <a 
+      href="https://instagram.com/agenciasurf" 
+      target="_blank" 
+      rel="noopener" 
+      class="btn-surf-accent"
+    >
+      Ver más eventos
+    </a>
+  </div>
+</section>
+
+<style>
+  .brand-promo-section {
+    padding: 100px 0 60px;
+    background: #ffffff;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .events-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .event-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .event-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .event-item:hover img {
+    transform: scale(1.08);
+  }
+
+  .event-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(121, 219, 172, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 2.2rem;
+    color: #161616;
+  }
+
+  .event-item:hover .event-overlay {
+    opacity: 1;
+  }
+
+  .gallery-cta {
+    margin-top: 45px;
+  }
+
+  @media (max-width: 992px) {
+    .events-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .events-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,158 @@
+---
+// ForeignCoverage.astro
+const cities = [
+  { name: "PUEBLA", diamond: true },
+  { name: "CDMX", diamond: true },
+  { name: "QUERÉTARO", diamond: false },
+  { name: "CANCÚN", diamond: false },
+  { name: "PLAYA DEL CARMEN", diamond: false }
+];
+---
+
+<section class="foreign-coverage-section">
+  <div class="coverage-grid">
+    <!-- Left text side -->
+    <div class="coverage-content-side">
+      <div class="coverage-box">
+        <h2 class="coverage-title">
+          Cobertura foránea<span class="dot">.</span>
+        </h2>
+        <p class="coverage-desc">
+          Tenemos actividad constante en diferentes lugares lo que nos ha convertido en una opción confiable no sólo para cubrir con talento local en cada plaza, sino porque también hemos fortalecido el traslado de talentos entre las diferentes zonas principalmente desde <strong>CDMX</strong> hacia otros estados según la exigencia de imagen del evento.
+        </p>
+
+        <div class="coverage-cities-wrapper">
+          <div class="surf-icon-col">
+            <img 
+              src="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/icono-tabla-surf-2.png?resize=91%2C150&ssl=1" 
+              alt="Icono Tabla Surf" 
+              class="surf-board-icon" 
+            />
+          </div>
+          <div class="cities-list-col">
+            <ul class="cities-list">
+              {cities.map(c => (
+                <li class="city-item">
+                  <strong>{c.name}</strong> 
+                  {c.diamond && <span class="diamond-icon">💎</span>}
+                </li>
+              ))}
+            </ul>
+            <span class="coverage-footer-note">
+              Y VARIOS ESTADOS MÁS EN<br />CENTRO, NORTE Y SUR DEL PAÍS
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right image side -->
+    <div class="coverage-image-side"></div>
+  </div>
+</section>
+
+<style>
+  .foreign-coverage-section {
+    width: 100%;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+
+  .coverage-content-side {
+    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/edecanes-foraneas-5.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+  }
+
+  .coverage-box {
+    max-width: 520px;
+  }
+
+  .coverage-title {
+    font-size: 2.8rem;
+    color: #222222;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .coverage-title .dot {
+    color: var(--color-accent);
+  }
+
+  .coverage-desc {
+    font-size: 1.05rem;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .coverage-cities-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .surf-board-icon {
+    width: 65px;
+    height: auto;
+  }
+
+  .cities-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .city-item {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .diamond-icon {
+    font-size: 0.9rem;
+  }
+
+  .coverage-footer-note {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: #888888;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .coverage-image-side {
+    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/edecanes-foraneas.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 960px) {
+    .coverage-grid {
+      grid-template-columns: 1fr;
+    }
+    .coverage-image-side {
+      min-height: 400px;
+    }
+    .coverage-content-side {
+      padding: 60px 30px;
+    }
+  }
+</style>

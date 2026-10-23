@@ -1,0 +1,204 @@
+---
+// ClientLogosAndCTA.astro
+const logosRow1 = [
+  { name: "Mercedes Benz", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-mercedes-benz.png?w=1060&ssl=1" },
+  { name: "Porsche", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-porsche.png?w=1060&ssl=1" },
+  { name: "BMW", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-bmw.png?w=1060&ssl=1" },
+  { name: "Kenworth", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-kenworth.png?w=1060&ssl=1" },
+  { name: "Coca-Cola", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-cocacola.png?w=1060&ssl=1" },
+  { name: "Bimbo", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-bimbo.png?w=1060&ssl=1" },
+  { name: "Ternium", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-ternium.png?w=1060&ssl=1" }
+];
+
+const logosRow2 = [
+  { name: "Innovasport", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-innovasports.png?w=1060&ssl=1" },
+  { name: "Providencia", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-providencia.png?w=1060&ssl=1" },
+  { name: "Sherwin Williams", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-sherwin-1.png?w=1060&ssl=1" },
+  { name: "Harley Davidson", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-harley-davidson.png?w=1060&ssl=1" },
+  { name: "Caterpillar", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-caterpillar.png?w=1060&ssl=1" },
+  { name: "Mpower", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-mpower.png?w=1060&ssl=1" },
+  { name: "ProOne", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-proone.png?w=1060&ssl=1" }
+];
+---
+
+<section class="clients-cta-section" id="clientes">
+  <!-- Brand Carousel Row 1 -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      {[...logosRow1, ...logosRow1].map((logo, i) => (
+        <div class="logo-item" key={i}>
+          <img src={logo.src} alt={logo.name} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Gold Call To Action Banner -->
+  <div class="cta-gold-banner">
+    <div class="container">
+      <div class="cta-flex-row">
+        <div class="cta-text-col">
+          <h2 class="cta-title">
+            Cuéntanos tu proyecto<span class="cta-dot">.</span>
+          </h2>
+          <p class="cta-sub">
+            Cotizaciones y colaboraciones, juntos podemos hacer algo genial!!!
+          </p>
+        </div>
+        <div class="cta-btn-col">
+          <a href="#contacto" class="btn-surf-purple">
+            Solicitar Informes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Carousel Row 2 -->
+  <div class="marquee-wrapper mt-30">
+    <div class="marquee-track reverse">
+      {[...logosRow2, ...logosRow2].map((logo, i) => (
+        <div class="logo-item" key={i}>
+          <img src={logo.src} alt={logo.name} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-cta-section {
+    padding: 35px 0 35px;
+    background-color: #f9b743;
+    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/surf-pattern.png?id=9702');
+    background-repeat: repeat;
+    background-position: 0 0;
+    overflow: hidden;
+  }
+
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 15px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    animation: scrollLogos 30s linear infinite;
+  }
+
+  .marquee-track.reverse {
+    animation: scrollLogosReverse 30s linear infinite;
+  }
+
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 70px;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+    transition: all 0.3s ease;
+  }
+
+  .logo-item:hover {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  .logo-item img {
+    max-height: 55px;
+    max-width: 155px;
+    object-fit: contain;
+  }
+
+  @keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scrollLogosReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* CTA Gold Banner */
+  .cta-gold-banner {
+    background-color: #f9b743;
+    padding: 35px 0 40px;
+    margin: 15px 0;
+  }
+
+  .cta-flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    color: #161616;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .cta-dot {
+    color: var(--color-accent);
+    font-size: 1.3em;
+  }
+
+  .cta-sub {
+    font-size: 1.15rem;
+    color: #222222;
+    font-weight: 500;
+  }
+
+  .btn-surf-purple {
+    display: inline-block;
+    background-color: #ae579d;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 32px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-surf-purple:hover {
+    background-color: #923a81;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(174, 87, 157, 0.4);
+  }
+
+  .mt-30 {
+    margin-top: 15px;
+  }
+
+  @media (max-width: 860px) {
+    .cta-flex-row {
+      flex-direction: column;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: 2rem;
+    }
+    .cta-sub {
+      font-size: 1.05rem;
+    }
+  }
+</style>

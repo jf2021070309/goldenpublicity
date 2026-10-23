@@ -1,0 +1,433 @@
+---
+// EquipoSurf.astro
+const models = [
+  {
+    id: "chelsa",
+    name: "Chelsa",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/chelsa.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "ingrid",
+    name: "Ingrid",
+    city: "En Puebla",
+    category: "puebla",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/ingrid.jpg?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "laura",
+    name: "Laura",
+    city: "En Puebla",
+    category: "puebla",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/laura-1.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "lulu",
+    name: "Lulú",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2017/06/lulu.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "montse",
+    name: "Montse",
+    city: "En Puebla",
+    category: "puebla",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/montse.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "nicole",
+    name: "Nicole",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/nicole.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "olena",
+    name: "Olena",
+    city: "En Puebla",
+    category: "puebla",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/olena.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "paula",
+    name: "Paula",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/paula_1.jpg?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "raissa",
+    name: "Raissa",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/raissa.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "sasha",
+    name: "Sasha",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/sasha.webp?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "shugey",
+    name: "Shugey",
+    city: "En Puebla",
+    category: "puebla",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/shugey.jpg?fit=550%2C1100&ssl=1"
+  },
+  {
+    id: "vey",
+    name: "Vey",
+    city: "En CDMX",
+    category: "cdmx",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/veyra_1.webp?fit=550%2C1100&ssl=1"
+  }
+];
+---
+
+<section class="equipo-surf-section" id="equipo-surf">
+  <div class="equipo-header-area">
+    <div class="container text-center">
+      <span class="section-subtitle">GRANDES MARCAS, GRAN EQUIPO</span>
+      <h2 class="section-title">
+        Equipo Golden Publicity<span class="dot">.</span>
+      </h2>
+      <p class="section-lead">
+        Posicionados como una Agencia de Edecanes y Modelos confiables en la zona centro y sur del país, contamos con un selecto grupo de talentos con la imagen ideal para representar tu marca de forma impecable, generando una interacción de <strong>alto impacto</strong> con el consumidor. Tenemos amplia experiencia en todo tipo de eventos, estando siempre presentes en las principales expos, eventos y sedes de las ciudades donde tenemos cobertura.
+      </p>
+      <a href="#contacto" class="btn-surf-accent">Solicitar Book</a>
+      <p class="featured-notice"><em>*Integrantes destacadas de este mes:</em></p>
+
+      <!-- Filter Tabs -->
+      <div class="model-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="cdmx">En CDMX</button>
+        <button class="filter-btn" data-filter="puebla">En Puebla</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Models Grid -->
+  <div class="models-grid" id="models-container">
+    {models.map(model => (
+      <div 
+        class="model-card" 
+        data-category={model.category}
+        data-name={model.name}
+        data-city={model.city}
+        data-img={model.image}
+      >
+        <div class="model-img-wrapper">
+          <img src={model.image} alt={`Modelo ${model.name} - Golden Publicity`} loading="lazy" />
+        </div>
+        <div class="model-overlay">
+          <div class="model-info">
+            <h3 class="model-name">{model.name}</h3>
+            <span class="model-city">{model.city}</span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="model-lightbox" class="model-lightbox">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-modal">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar modal">&times;</button>
+      <div class="lightbox-body">
+        <img id="lightbox-img" src="" alt="Detalle de modelo" />
+        <div class="lightbox-caption">
+          <h3 id="lightbox-name"></h3>
+          <span id="lightbox-city"></span>
+          <a href="#contacto" class="btn-surf-accent mt-3">Cotizar Perfil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Filter Functionality
+  const filterBtns = document.querySelectorAll<HTMLElement>('.filter-btn');
+  const modelCards = document.querySelectorAll<HTMLElement>('.model-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      modelCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal Functionality
+  const lightbox = document.getElementById('model-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxName = document.getElementById('lightbox-name');
+  const lightboxCity = document.getElementById('lightbox-city');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  modelCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.dataset.name || '';
+      const city = card.dataset.city || '';
+      const img = card.dataset.img || '';
+
+      if (lightboxImg) lightboxImg.src = img;
+      if (lightboxName) lightboxName.textContent = name;
+      if (lightboxCity) lightboxCity.textContent = city;
+      lightbox?.classList.add('open');
+    });
+  });
+
+  lightboxClose?.addEventListener('click', () => {
+    lightbox?.classList.remove('open');
+  });
+
+  lightbox?.querySelector('.lightbox-backdrop')?.addEventListener('click', () => {
+    lightbox?.classList.remove('open');
+  });
+</script>
+
+<style>
+  .equipo-surf-section {
+    padding: 100px 0 0;
+    background: #ffffff;
+    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/bg-h1-5.jpg');
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .equipo-header-area {
+    margin-bottom: 50px;
+  }
+
+  .featured-notice {
+    margin-top: 24px;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .model-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .filter-btn {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    color: #555555;
+    transition: var(--transition-smooth);
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--color-accent);
+    color: #161616;
+    border-color: var(--color-accent);
+  }
+
+  /* Models Grid (No space between gallery items matching Mikado style) */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+  }
+
+  .model-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1 / 2;
+    background: #000000;
+  }
+
+  .model-img-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .model-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
+  }
+
+  .model-card:hover .model-img-wrapper img {
+    transform: scale(0.94);
+    filter: brightness(0.85);
+  }
+
+  .model-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px 18px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 60%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .model-card:hover .model-overlay {
+    opacity: 1;
+  }
+
+  .model-info {
+    transform: translateY(10px);
+    transition: transform 0.35s ease;
+  }
+
+  .model-card:hover .model-info {
+    transform: translateY(0);
+  }
+
+  .model-name {
+    font-size: 1.6rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .model-city {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Lightbox Modal */
+  .model-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+  }
+
+  .model-lightbox.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-modal {
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
+    border-radius: 8px;
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.2rem;
+    color: #333333;
+    z-index: 20;
+    line-height: 1;
+  }
+
+  .lightbox-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 90vh;
+  }
+
+  .lightbox-body img {
+    width: 100%;
+    height: 100%;
+    max-height: 90vh;
+    object-fit: cover;
+  }
+
+  .lightbox-caption {
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lightbox-caption h3 {
+    font-size: 2.5rem;
+    color: #161616;
+    margin-bottom: 8px;
+  }
+
+  .lightbox-caption span {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-accent-hover);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .mt-3 {
+    margin-top: 18px;
+  }
+
+  @media (max-width: 1200px) {
+    .models-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .models-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .lightbox-body {
+      grid-template-columns: 1fr;
+    }
+    .lightbox-body img {
+      max-height: 45vh;
+    }
+    .lightbox-caption {
+      padding: 24px;
+    }
+  }
+</style>

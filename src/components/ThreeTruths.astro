@@ -1,0 +1,107 @@
+---
+// ThreeTruths.astro
+const truths = [
+  {
+    num: "VERDAD #1",
+    text: "Mucha gente prefiere las marcas que les hacen sentir o vivir cosas diferentes.",
+    bgImage: "https://agenciasurf.mx/wp-content/uploads/2022/01/bg-1-4.webp",
+    bgColor: "#eae8ab"
+  },
+  {
+    num: "VERDAD #2",
+    text: "El ser humano relaciona el éxito, la seguridad y la calidad, con los rasgos atractivos.",
+    bgImage: "https://agenciasurf.mx/wp-content/uploads/2022/01/bg-3.jpg",
+    bgColor: "#e0fff3"
+  },
+  {
+    num: "VERDAD #3",
+    text: "Somos una Agencia de Edecanes y Modelos.<br />Y sí, nos llamamos Golden Publicity.",
+    bgImage: "https://agenciasurf.mx/wp-content/uploads/2022/01/bg-2.webp",
+    bgColor: "#ffeddd"
+  }
+];
+---
+
+<section class="three-truths-section" id="nosotros">
+  <div class="truths-grid">
+    {truths.map(item => (
+      <div 
+        class="truth-card" 
+        style={`background-color: ${item.bgColor}; background-image: url('${item.bgImage}');`}
+      >
+        <div class="truth-card-inner">
+          <span class="truth-number">{item.num}</span>
+          <h2 class="truth-text" set:html={item.text} />
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .three-truths-section {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .truths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .truth-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 110px 60px 130px 70px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+
+  .truth-card:hover {
+    filter: brightness(1.02);
+  }
+
+  .truth-card-inner {
+    max-width: 420px;
+  }
+
+  .truth-number {
+    display: inline-block;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  .truth-text {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #161616;
+  }
+
+  @media (max-width: 1024px) {
+    .truth-card {
+      padding: 80px 40px 90px 45px;
+    }
+    .truth-text {
+      font-size: 1.45rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .truths-grid {
+      grid-template-columns: 1fr;
+    }
+    .truth-card {
+      padding: 70px 30px;
+    }
+  }
+</style>

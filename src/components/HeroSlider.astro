@@ -1,0 +1,347 @@
+---
+// HeroSlider.astro
+const slides = [
+  {
+    type: "brand",
+    bg: "https://agenciasurf.mx/wp-content/uploads/2024/12/slide-surf-plants.webp",
+    logo: "https://agenciasurf.mx/wp-content/uploads/2022/02/logo-surf.png",
+    subtitle: "#GoldenPublicity",
+    alt: "Golden Publicity - Edecanes y Modelos"
+  },
+  {
+    type: "headline",
+    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-mpower-2.jpg",
+    title: "IMPACTANTES",
+    subtitle: "HAY QUE DESTACAR DEL RESTO PARA SER RECORDADO",
+    gradient: "linear-gradient(90deg, rgba(247,167,39,1) 0%, rgba(255,94,58,1) 100%)",
+    alt: "Slide Mpower - Impactantes"
+  },
+  {
+    type: "headline",
+    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-mercedes.jpg",
+    title: "ELEGANTES",
+    subtitle: "TENEMOS LA IMAGEN CORRECTA PARA TU MARCA",
+    gradient: "linear-gradient(90deg, rgba(26,214,253,1) 0%, rgba(29,98,240,1) 100%)",
+    alt: "Slide Mercedes - Elegantes"
+  },
+  {
+    type: "headline",
+    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-coca.jpg",
+    title: "DIFERENTES",
+    subtitle: "EXPERIENCIA DE MARCA LE LLAMAMOS",
+    gradient: "linear-gradient(90deg, rgba(255,94,58,1) 0%, rgba(255,42,104,1) 100%)",
+    alt: "Slide Coca - Diferentes"
+  },
+  {
+    type: "headline",
+    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-viajes-3.jpg",
+    title: "Y NOS ENCANTA VIAJAR",
+    subtitle: "LA IMAGEN QUE NECESITA TU EVENTO, SEA DONDE SEA",
+    gradient: "linear-gradient(90deg, rgba(198,68,252,1) 0%, rgba(88,86,214,1) 100%)",
+    alt: "Slide Viajes - Cobertura"
+  }
+];
+---
+
+<section class="hero-slider" id="inicio">
+  <div class="slides-container" id="slides-wrapper">
+    {slides.map((slide, index) => (
+      <div class={`slide ${index === 0 ? 'active' : ''}`} data-index={index}>
+        <div class="slide-bg" style={`background-image: url('${slide.bg}')`}></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          {slide.type === "brand" ? (
+            <div class="brand-slide">
+              <img src={slide.logo} alt="Logo Golden Publicity" class="hero-brand-logo" />
+              <p class="hero-tagline">{slide.subtitle}</p>
+            </div>
+          ) : (
+            <div class="headline-slide">
+              <h1 class="hero-title">
+                {slide.title}<span class="hero-dot">.</span>
+              </h1>
+              <div class="hero-line" style={`background: ${slide.gradient}`}></div>
+              <p class="hero-subtitle">{slide.subtitle}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="slider-arrow prev" id="slider-prev" aria-label="Slide anterior">
+    <i class="fa fa-angle-left"></i>
+  </button>
+  <button class="slider-arrow next" id="slider-next" aria-label="Siguiente slide">
+    <i class="fa fa-angle-right"></i>
+  </button>
+
+  <!-- Dots Navigation -->
+  <div class="slider-dots" id="slider-dots">
+    {slides.map((_, index) => (
+      <button 
+        class={`dot ${index === 0 ? 'active' : ''}`} 
+        data-slide-to={index} 
+        aria-label={`Ir al slide ${index + 1}`}
+      ></button>
+    ))}
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll<HTMLElement>('.hero-slider .slide');
+  const dots = document.querySelectorAll<HTMLElement>('.hero-slider .dot');
+  const totalSlides = slides.length;
+  let autoPlayTimer: any;
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % totalSlides);
+  }
+
+  function prevSlide() {
+    showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayTimer = setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) clearInterval(autoPlayTimer);
+  }
+
+  document.getElementById('slider-next')?.addEventListener('click', () => {
+    nextSlide();
+    startAutoPlay();
+  });
+
+  document.getElementById('slider-prev')?.addEventListener('click', () => {
+    prevSlide();
+    startAutoPlay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      startAutoPlay();
+    });
+  });
+
+  const heroSlider = document.querySelector('.hero-slider');
+  heroSlider?.addEventListener('mouseenter', stopAutoPlay);
+  heroSlider?.addEventListener('mouseleave', startAutoPlay);
+
+  startAutoPlay();
+</script>
+
+<style>
+  .hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 1080px;
+    overflow: hidden;
+    background-color: #0c0c0c;
+  }
+
+  .slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.08);
+    transition: transform 7s ease-out;
+  }
+
+  .slide.active .slide-bg {
+    transform: scale(1);
+  }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  /* Brand Slide */
+  .brand-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .hero-brand-logo {
+    width: 320px;
+    max-width: 80vw;
+    height: auto;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+    margin-bottom: 20px;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-slogan);
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+  }
+
+  /* Headline Slide */
+  .headline-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 8vw, 7.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 0.95;
+    text-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+  }
+
+  .hero-dot {
+    color: var(--color-accent);
+  }
+
+  .hero-line {
+    width: clamp(260px, 60vw, 750px);
+    height: 4px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-slogan);
+    font-size: clamp(1rem, 2.2vw, 1.6rem);
+    letter-spacing: 5px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  }
+
+  /* Arrows */
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.35);
+    color: #ffffff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .slider-arrow:hover {
+    background: var(--color-accent);
+    color: #111111;
+    border-color: var(--color-accent);
+  }
+
+  .slider-arrow.prev {
+    left: 28px;
+  }
+
+  .slider-arrow.next {
+    right: 28px;
+  }
+
+  /* Dots */
+  .slider-dots {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transition: all 0.3s ease;
+  }
+
+  .dot.active, .dot:hover {
+    background: var(--color-accent);
+    transform: scale(1.25);
+  }
+
+  @media (max-width: 768px) {
+    .slider-arrow {
+      display: none;
+    }
+    .hero-line {
+      height: 3px;
+      margin-bottom: 16px;
+    }
+    .hero-subtitle {
+      letter-spacing: 2px;
+    }
+  }
+</style>

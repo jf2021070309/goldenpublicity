@@ -1,0 +1,124 @@
+---
+// SocialFollowBanner.astro
+---
+
+<section class="social-follow-section">
+  <div class="container">
+    <div class="social-banner-box">
+      <h2 class="social-banner-title">
+        Hey, síguenos<span class="dot">.</span>
+      </h2>
+      <p class="social-banner-sub">
+        Sigue de cerca nuestros <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener">eventos</a>, <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener">proyectos</a> y transmisiones en vivo de nuestras modelos.
+      </p>
+
+      <div class="social-buttons-row">
+        <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
+          <i class="fa fa-facebook"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
+          <i class="fa fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
+          <i class="fa fa-music"></i> TikTok
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-follow-section {
+    position: relative;
+    padding: 120px 0;
+    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/surf-parallax-redessociales-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+  }
+
+  .social-follow-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .social-banner-box {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+  }
+
+  .social-banner-title {
+    font-size: 3rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .social-banner-title .dot {
+    color: var(--color-accent);
+  }
+
+  .social-banner-sub {
+    font-size: 1.25rem;
+    color: #222222;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .social-banner-sub a {
+    color: #111111;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .social-banner-sub a:hover {
+    color: var(--color-purple);
+  }
+
+  .social-buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .btn-social-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-gold);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-social-gold:hover {
+    background-color: var(--color-accent);
+    color: #161616;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  @media (max-width: 768px) {
+    .social-follow-section {
+      padding: 80px 0;
+      background-attachment: scroll;
+    }
+    .social-banner-title {
+      font-size: 2.3rem;
+    }
+    .social-banner-sub {
+      font-size: 1.1rem;
+    }
+  }
+</style>

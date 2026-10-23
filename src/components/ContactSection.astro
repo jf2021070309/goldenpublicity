@@ -1,0 +1,293 @@
+---
+// ContactSection.astro
+---
+
+<section class="contact-section" id="contacto">
+  <div class="container">
+    <div class="contact-header text-center">
+      <span class="section-subtitle">CONÉCTATE CON GOLDEN PUBLICITY</span>
+      <h2 class="section-title">
+        Solicita una Cotización<span class="dot">.</span>
+      </h2>
+      <p class="section-lead">
+        Compártenos los detalles de tu evento, exposición o campaña. Te responderemos a la brevedad con la selección y book ideal para tu marca.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Form -->
+      <div class="contact-form-card">
+        <form id="quote-form" class="quote-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre completo *</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre o empresa" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="ejemplo@marca.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Teléfono / WhatsApp *</label>
+              <input type="tel" id="phone" name="phone" placeholder="10 dígitos" required />
+            </div>
+            <div class="form-group">
+              <label for="city">Ciudad del evento *</label>
+              <select id="city" name="city" required>
+                <option value="">Selecciona una opción</option>
+                <option value="cdmx">Ciudad de México (CDMX)</option>
+                <option value="puebla">Puebla</option>
+                <option value="queretaro">Querétaro</option>
+                <option value="cancun">Cancún / Riviera Maya</option>
+                <option value="otro">Otro estado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Servicio requerido *</label>
+            <select id="service" name="service" required>
+              <option value="edecanes">Edecanes y Modelos (AAA / Pasarela / Imagen)</option>
+              <option value="expos">Expos y Convenciones</option>
+              <option value="btl">BTL y Activaciones de Marca</option>
+              <option value="masivos">Eventos Masivos / Deportivos</option>
+              <option value="contenido">Generación de Contenido Digital</option>
+              <option value="staff">Personal de Staff / Logística</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Detalles del proyecto o evento</label>
+            <textarea id="message" name="message" rows="4" placeholder="Fechas, horarios, número de talentos requeridos o requerimientos especiales..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span>Enviar Solicitud</span>
+            <i class="fa fa-paper-plane"></i>
+          </button>
+
+          <div id="form-feedback" class="form-feedback"></div>
+        </form>
+      </div>
+
+      <!-- Contact Info Cards -->
+      <div class="contact-info-col">
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa fa-envelope-o"></i></div>
+          <div class="info-card-content">
+            <h4>Atención General</h4>
+            <a href="mailto:contacto@agenciasurf.mx">contacto@agenciasurf.mx</a>
+            <p>CDMX: <a href="tel:5547873219">55 4787 3219</a></p>
+            <p>Puebla: <a href="tel:2212529626">22 1252 9626</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa fa-star-o"></i></div>
+          <div class="info-card-content">
+            <h4>Nuevos Talentos</h4>
+            <a href="mailto:casting@agenciasurf.mx">casting@agenciasurf.mx</a>
+            <p>WhatsApp Casting: <a href="https://wa.me/5212212529626" target="_blank" rel="noopener">22 1252 9626</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-icon"><i class="fa fa-map-marker"></i></div>
+          <div class="info-card-content">
+            <h4>Ubicaciones</h4>
+            <p><strong>Surf Puebla:</strong> Priv. 43 A Oriente #2207, Col. El Mirador, 72530, Puebla, Pue.</p>
+            <p style="margin-top: 6px;"><strong>Surf CDMX:</strong> City Towers I - Int. 601, Av. Popocatépetl 415, Benito Juárez, 03310, CDMX</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement;
+  const feedback = document.getElementById('form-feedback');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (feedback) {
+      feedback.textContent = '¡Gracias por tu mensaje! Tu solicitud ha sido registrada correctamente. Un coordinador de Golden Publicity se comunicará contigo a la brevedad.';
+      feedback.className = 'form-feedback success';
+      form.reset();
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    padding: 100px 0;
+    background-color: #f7f9f8;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .contact-header {
+    margin-bottom: 50px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+  }
+
+  .contact-form-card {
+    background: #ffffff;
+    padding: 45px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--color-accent);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 22px;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+  }
+
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #222222;
+    background: #fafafa;
+    transition: all 0.25s ease;
+  }
+
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(121, 219, 172, 0.25);
+  }
+
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-accent);
+    color: #111111;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 34px;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+  }
+
+  .btn-submit:hover {
+    background-color: var(--color-gold);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .form-feedback {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .form-feedback.success {
+    padding: 14px 18px;
+    background: #e8f9f1;
+    border-left: 4px solid var(--color-accent);
+    color: #1a6d47;
+    border-radius: 4px;
+  }
+
+  /* Info Col */
+  .contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: #ffffff;
+    padding: 30px 26px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .info-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(121, 219, 172, 0.15);
+    color: var(--color-accent-hover);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-card-content h4 {
+    font-size: 1.25rem;
+    color: #222222;
+    margin-bottom: 6px;
+  }
+
+  .info-card-content a {
+    color: var(--color-accent-hover);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .info-card-content a:hover {
+    color: var(--color-purple);
+  }
+
+  .info-card-content p {
+    font-size: 0.92rem;
+    color: #666666;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 960px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+</style>

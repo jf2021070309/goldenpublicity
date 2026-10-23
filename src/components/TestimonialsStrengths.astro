@@ -1,0 +1,219 @@
+---
+// TestimonialsStrengths.astro
+const items = [
+  {
+    title: "Uniformes especiales",
+    desc: "Todo suma para marcar la diferencia. Desarrollo y producción de uniformes custom."
+  },
+  {
+    title: "Precios justos",
+    desc: "Nos mantenemos en el standard del mercado local actual, siempre pensando en optimizar el presupuesto."
+  },
+  {
+    title: "Socio estratégico confiable",
+    desc: "Trabajamos con transparencia, respeto y confidencialidad con diferentes agencias en diferentes partes del País."
+  },
+  {
+    title: "Creatividad",
+    desc: "Planeamos, desarrollamos y ejecutamos campañas de MKT y BTL para una correcta activación de marca."
+  },
+  {
+    title: "Servicio Foráneo",
+    desc: "Somos el enlace ideal para trasladar personal de diferentes ciudades hasta el lugar donde se requiere."
+  }
+];
+---
+
+<section class="testimonials-strengths-section">
+  <div class="container">
+    <div class="strengths-slider-wrapper">
+      <div class="strengths-track" id="strengths-track">
+        {items.map((item, idx) => (
+          <div class={`strength-item ${idx === 0 ? 'active' : ''}`} data-idx={idx}>
+            <span class="strength-badge">VALOR DIFERENCIAL #0{idx + 1}</span>
+            <h2 class="strength-title">{item.title}</h2>
+            <h4 class="strength-desc">{item.desc}</h4>
+          </div>
+        ))}
+      </div>
+
+      <!-- Controls -->
+      <div class="strengths-nav">
+        <button id="strength-prev" class="str-nav-btn" aria-label="Anterior">&larr;</button>
+        <div class="str-dots" id="strength-dots">
+          {items.map((_, idx) => (
+            <button class={`str-dot ${idx === 0 ? 'active' : ''}`} data-idx={idx}></button>
+          ))}
+        </div>
+        <button id="strength-next" class="str-nav-btn" aria-label="Siguiente">&rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let activeIndex = 0;
+  const items = document.querySelectorAll<HTMLElement>('.strength-item');
+  const dots = document.querySelectorAll<HTMLElement>('.str-dot');
+  const total = items.length;
+  let timer: any;
+
+  function setItem(index: number) {
+    items.forEach((it, i) => it.classList.toggle('active', i === index));
+    dots.forEach((dt, i) => dt.classList.toggle('active', i === index));
+    activeIndex = index;
+  }
+
+  function next() {
+    setItem((activeIndex + 1) % total);
+  }
+
+  function prev() {
+    setItem((activeIndex - 1 + total) % total);
+  }
+
+  document.getElementById('strength-next')?.addEventListener('click', () => {
+    next();
+    resetTimer();
+  });
+
+  document.getElementById('strength-prev')?.addEventListener('click', () => {
+    prev();
+    resetTimer();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = Number(dot.dataset.idx || 0);
+      setItem(idx);
+      resetTimer();
+    });
+  });
+
+  function startTimer() {
+    timer = setInterval(next, 4500);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
+
+  startTimer();
+</script>
+
+<style>
+  .testimonials-strengths-section {
+    background-color: #1a1a1a;
+    border-top: 3px solid var(--color-yellow-border);
+    border-bottom: 3px solid var(--color-yellow-border);
+    padding: 95px 0 85px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .strengths-slider-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .strengths-track {
+    position: relative;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .strength-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .strength-item.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: relative;
+  }
+
+  .strength-badge {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .strength-title {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .strength-desc {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    color: #e5e5e5;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .strengths-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .str-nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+  }
+
+  .str-nav-btn:hover {
+    background: var(--color-gold);
+    color: #161616;
+    border-color: var(--color-gold);
+  }
+
+  .str-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .str-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .str-dot.active {
+    background: var(--color-gold);
+    transform: scale(1.3);
+  }
+</style>

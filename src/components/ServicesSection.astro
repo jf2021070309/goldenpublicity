@@ -1,0 +1,159 @@
+---
+// ServicesSection.astro
+const services = [
+  {
+    title: "Edecanes y Modelos",
+    desc: "Nos especializamos en perfiles con diferentes rasgos según la campaña, evento o estilo que requiera tu marca, desde perfiles ejecutivos hasta looks alternativos.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_cdmx_puebla-2.jpg?fit=450%2C300&ssl=1"
+  },
+  {
+    title: "Eventos Masivos",
+    desc: "Brindamos un selecto equipo de Modelos, Edecanes o Personal de Imagen con el nivel que tu marca/evento requiere, muy útil dentro de eventos deportivos, musicales o sociales.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_estadio_festivales-1.jpg?fit=450%2C300&ssl=1"
+  },
+  {
+    title: "Generación de contenido",
+    desc: "Una imagen atractiva y una idea genial son la combinación perfecta para crear contenido digital como catálogos, videos o arte digital para cautivar seguidores hoy en día.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_redes_sociales1-1.jpg?fit=450%2C300&ssl=1"
+  },
+  {
+    title: "Expos y Convenciones",
+    desc: "El lugar ideal para personificar tu marca haciendo que los rasgos y características del personal sean fundamentales para atraer miradas y clientes potenciales.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_expos2-1.jpg?fit=450%2C300&ssl=1"
+  },
+  {
+    title: "Equipo de Staff (Staff Support)",
+    desc: "Coordinamos un equipo de trabajo comprometido con las actividades de logística encomendadas para que tu evento se realice de manera exitosa.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_staff_evento.jpg?fit=450%2C300&ssl=1"
+  },
+  {
+    title: "BTL",
+    desc: "La sorpresa, la creatividad o la ocasión, son fundamentales para crear una promoción diferente, permítenos ser parte de una idea genial.",
+    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_btl-2.jpg?fit=450%2C300&ssl=1"
+  }
+];
+---
+
+<section class="services-section" id="servicios">
+  <div class="container">
+    <div class="services-header text-center">
+      <span class="section-subtitle">SOLUCIONES INTEGRALES</span>
+      <h2 class="section-title">
+        Nuestros Servicios<span class="dot">.</span>
+      </h2>
+      <p class="section-lead">
+        Descubre cómo impulsamos la presencia de tu marca con talento calificado, imagen impecable y coordinación profesional.
+      </p>
+    </div>
+
+    <!-- 6 Services Grid -->
+    <div class="services-grid">
+      {services.map(svc => (
+        <div class="service-card">
+          <div class="service-img-holder">
+            <img src={svc.image} alt={svc.title} loading="lazy" />
+          </div>
+          <div class="service-content">
+            <h3 class="service-title">{svc.title}</h3>
+            <p class="service-desc">{svc.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center services-cta">
+      <a href="#contacto" class="btn-surf-accent">
+        Ver otros servicios
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 100px 0 90px;
+    background-color: #fafafa;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .services-header {
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+
+  .service-card {
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+  }
+
+  .service-img-holder {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .service-img-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-img-holder img {
+    transform: scale(1.06);
+  }
+
+  .service-content {
+    padding: 26px 22px 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-title {
+    font-size: 1.35rem;
+    color: #222222;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.6;
+  }
+
+  .services-cta {
+    margin-top: 55px;
+  }
+
+  @media (max-width: 992px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 650px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

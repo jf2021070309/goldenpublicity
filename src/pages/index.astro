@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import ThreeTruths from '../components/ThreeTruths.astro';
+import EquipoSurf from '../components/EquipoSurf.astro';
+import BrandPromoGallery from '../components/BrandPromoGallery.astro';
+import TestimonialsStrengths from '../components/TestimonialsStrengths.astro';
+import PillarsAndQuote from '../components/PillarsAndQuote.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import ForeignCoverage from '../components/ForeignCoverage.astro';
+import SocialFollowBanner from '../components/SocialFollowBanner.astro';
+import ClientLogosAndCTA from '../components/ClientLogosAndCTA.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import BackToTop from '../components/BackToTop.astro';
+---
+
+<Layout 
+  title="Agencia de Edecanes y Modelos | Golden Publicity"
+  description="➤ Tel. 221 252 9626 | Agencia de edecanes y modelos | Expos, eventos, activaciones de marca | ¿Eres una marca cool? Nosotros también."
+>
+  <!-- Global Header -->
+  <Header />
+
+  <!-- Main Content -->
+  <main>
+    <!-- 1. Hero Revolution Slider Replica -->
+    <HeroSlider />
+
+    <!-- 2. Three Truths Section -->
+    <ThreeTruths />
+
+    <!-- 3. Equipo Surf: Highlighted Model Grid with Lightbox & City Filters -->
+    <EquipoSurf />
+
+    <!-- 4. "¿Cómo quieres promocionar tu marca?" + 16-Event Gallery -->
+    <BrandPromoGallery />
+
+    <!-- 5. Testimonials & Core Differentiators Banner -->
+    <TestimonialsStrengths />
+
+    <!-- 6. Four Pillars & Experience Quote -->
+    <PillarsAndQuote />
+
+    <!-- 7. 6 Core Services Grid -->
+    <ServicesSection />
+
+    <!-- 8. Foreign Coverage / Cobertura Foránea -->
+    <ForeignCoverage />
+
+    <!-- 9. "Hey, síguenos." Parallax Social Banner -->
+    <SocialFollowBanner />
+
+    <!-- 10. Client Brands Carousel & Gold Call-to-Action -->
+    <ClientLogosAndCTA />
+
+    <!-- 11. Interactive Quote & Contact Form -->
+    <ContactSection />
+  </main>
+
+  <!-- Global Footer -->
+  <Footer />
+
+  <!-- Floating Elements -->
+  <WhatsAppWidget />
+  <BackToTop />
+</Layout>

@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Agencia de Edecanes y Modelos | Golden Publicity",
+  description = "➤ Tel. 221 252 9626 | Agencia de edecanes y modelos | Expos, eventos, activaciones de marca | ¿Eres una marca cool? Nosotros también.",
+  image = "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/montse-portfolio-5a.jpg"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href="https://goldenpublicity.zelo.com.mx/" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://goldenpublicity.zelo.com.mx/" />
+  <meta property="og:site_name" content="Golden Publicity Edecanes y Modelos en Puebla y CDMX" />
+  <meta property="og:image" content={image} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/cropped-favicon.png?fit=32%2C32&ssl=1" sizes="32x32" />
+  <link rel="apple-touch-icon" href="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/cropped-favicon.png?fit=120%2C120&ssl=1" />
+
+  <!-- FontAwesome & Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+</head>
+<body>
+  <div class="site-wrapper">
+    <slot />
+  </div>
+</body>
+</html>
+
+<style>
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+</style>

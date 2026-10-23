@@ -1,0 +1,425 @@
+---
+// Header.astro
+---
+
+<header id="main-header" class="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-area">
+      <a href="/" class="logo-link">
+        <img 
+          src="https://agenciasurf.mx/wp-content/uploads/2022/02/logo_surf_edecanes_light.png" 
+          alt="Golden Publicity Logo" 
+          class="logo-img logo-light" 
+        />
+        <img 
+          src="https://agenciasurf.mx/wp-content/uploads/2022/02/logo_surf_edecanes_dark.png" 
+          alt="Golden Publicity Logo" 
+          class="logo-img logo-dark" 
+        />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
+        <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li class="nav-item"><a href="#clientes" class="nav-link">Clientes</a></li>
+        <li class="nav-item dropdown">
+          <a href="#equipo-surf" class="nav-link dropdown-toggle">
+            Equipo Golden Publicity <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#equipo-surf" data-filter="cdmx">Edecanes CDMX</a></li>
+            <li><a href="#equipo-surf" data-filter="puebla">Edecanes Puebla</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Social / Actions -->
+    <div class="header-actions">
+      <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <i class="fa fa-instagram"></i>
+      </a>
+      <a href="#contacto" class="quote-btn">Cotizar</a>
+      
+      <!-- Mobile hamburger toggle -->
+      <button id="mobile-toggle" class="mobile-toggle" aria-label="Menú móvil">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="mobile-drawer-inner">
+      <ul class="mobile-nav-list">
+        <li><a href="/" class="mobile-nav-link active">Inicio</a></li>
+        <li><a href="#nosotros" class="mobile-nav-link">Nosotros</a></li>
+        <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+        <li><a href="#clientes" class="mobile-nav-link">Clientes</a></li>
+        <li class="mobile-has-sub">
+          <span class="mobile-sub-title">Equipo Golden Publicity</span>
+          <ul class="mobile-sub-list">
+            <li><a href="#equipo-surf" class="mobile-sub-link">Edecanes CDMX</a></li>
+            <li><a href="#equipo-surf" class="mobile-sub-link">Edecanes Puebla</a></li>
+          </ul>
+        </li>
+        <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="mobile-socials">
+        <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-music"></i> TikTok</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Sticky Header Effect
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile Drawer Toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  mobileToggle?.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    mobileDrawer?.classList.toggle('open');
+  });
+
+  // Close mobile drawer on link click
+  document.querySelectorAll('.mobile-nav-link, .mobile-sub-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileToggle?.classList.remove('active');
+      mobileDrawer?.classList.remove('open');
+    });
+  });
+
+  // Support navigation dropdown links filtering models
+  document.querySelectorAll('a[data-filter]').forEach(link => {
+    link.addEventListener('click', () => {
+      const filter = link.getAttribute('data-filter');
+      if (filter) {
+        const targetBtn = document.querySelector<HTMLElement>(`.filter-btn[data-filter="${filter}"]`);
+        if (targetBtn) {
+          targetBtn.click();
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.35s ease;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    padding: 22px 0;
+  }
+
+  .header.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 12px 0;
+  }
+
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-link {
+    display: inline-block;
+    height: 42px;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-dark {
+    display: none;
+  }
+
+  .header.scrolled .logo-light {
+    display: none;
+  }
+
+  .header.scrolled .logo-dark {
+    display: block;
+  }
+
+  /* Desktop Nav */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s ease;
+  }
+
+  .header.scrolled .nav-link {
+    color: #222222;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--color-accent) !important;
+  }
+
+  /* Dropdown */
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    list-style: none;
+    min-width: 190px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    z-index: 100;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: #333333;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .dropdown-menu li a:hover {
+    background: #f7faf9;
+    color: var(--color-accent);
+  }
+
+  /* Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .social-icon {
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 6px;
+    transition: color 0.25s ease;
+  }
+
+  .header.scrolled .social-icon {
+    color: #444444;
+  }
+
+  .social-icon:hover {
+    color: var(--color-accent) !important;
+  }
+
+  .quote-btn {
+    background-color: var(--color-accent);
+    color: #111111;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 18px;
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+  }
+
+  .quote-btn:hover {
+    background-color: var(--color-gold);
+    color: #ffffff;
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    cursor: pointer;
+  }
+
+  .mobile-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .header.scrolled .mobile-toggle .bar {
+    background-color: #222222;
+  }
+
+  .mobile-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .mobile-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 2px solid var(--color-accent);
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.open {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .mobile-nav-link.active, .mobile-nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .mobile-has-sub .mobile-sub-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .mobile-sub-list {
+    list-style: none;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-sub-link {
+    color: #cccccc;
+    font-size: 1rem;
+  }
+
+  .mobile-sub-link:hover {
+    color: var(--color-accent);
+  }
+
+  .mobile-socials {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem;
+    color: #ffffff;
+  }
+
+  .mobile-socials a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 960px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+    .quote-btn {
+      display: none;
+    }
+  }
+</style>

@@ -1,19 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Roboto:wght@300;400;500;700&family=Ropa+Sans:ital@0;1&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  --color-accent: #79dbac;
-  --color-accent-hover: #5ec794;
-  --color-gold: #f9b743;
-  --color-gold-hover: #e09f30;
-  --color-yellow-border: #FCBE34;
-  --color-purple: #ae579d;
-  --color-purple-hover: #964286;
+  /* Golden Publicity Brand Palette */
+  --color-orange: #FF4B00;
+  --color-orange-hover: #e04200;
+  --color-navy: #062B5C;
+  --color-navy-hover: #041c3d;
+  
+  /* Mikado / Buro theme mappings */
+  --color-accent: #FF4B00;              /* Accent Color: #FF4B00 */
+  --color-accent-hover: #e04200;
+  --color-extra-1: #062B5C;             /* Extra Color #1: #062B5C */
+  --color-extra-2: #FF4B00;             /* Extra Color #2: #FF4B00 */
+  --color-extra-3: #062B5C;             /* Extra Color #3: #062B5C */
+  
+  /* Replacement for gold, yellow borders and purple */
+  --color-gold: #FF4B00;
+  --color-gold-hover: #e04200;
+  --color-yellow-border: #FF4B00;
+  --color-purple: #062B5C;
+  --color-purple-hover: #041c3d;
+  
+  /* Extra Color Gradients */
+  --color-gradient-primary: linear-gradient(135deg, #FF4B00 0%, #062B5C 100%);
+  --color-gradient-secondary: linear-gradient(90deg, #FF4B00 0%, #062B5C 100%);
+
   --color-dark-bg: #121212;
   --color-dark-card: #1c1c1c;
-  --color-text-dark: #161616;
+  --color-text-dark: #062B5C;
   --color-text-body: #333333;
-  --color-text-muted: #777777;
-  --color-text-light: #999999;
+  --color-text-muted: #667085;
+  --color-text-light: #FF4B00;
   --font-heading: 'Prompt', sans-serif;
   --font-body: 'Rubik', 'Roboto', sans-serif;
   --font-slogan: 'Ropa Sans', sans-serif;
@@ -84,28 +101,28 @@ button {
 /* Common Buttons */
 .btn-surf-accent {
   display: inline-block;
-  background-color: var(--color-accent);
-  color: #161616;
+  background-color: var(--color-orange);
+  color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 12px 28px;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: var(--transition-smooth);
 }
 
 .btn-surf-accent:hover {
-  background-color: var(--color-gold);
+  background-color: var(--color-navy);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 16px rgba(6, 43, 92, 0.25);
 }
 
 .btn-surf-gold {
   display: inline-block;
-  background-color: var(--color-gold);
+  background: var(--color-gradient-primary);
   color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.85rem;
@@ -113,20 +130,20 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 12px 28px;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: var(--transition-smooth);
 }
 
 .btn-surf-gold:hover {
-  background-color: var(--color-accent);
-  color: #161616;
+  background: var(--color-navy);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(255, 75, 0, 0.25);
 }
 
 .btn-surf-purple {
   display: inline-block;
-  background-color: var(--color-purple);
+  background-color: var(--color-navy);
   color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.95rem;
@@ -134,15 +151,15 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 14px 34px;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: var(--transition-smooth);
 }
 
 .btn-surf-purple:hover {
-  background-color: #ffffff;
-  color: var(--color-purple);
+  background-color: var(--color-orange);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px rgba(255, 75, 0, 0.3);
 }
 
 /* Section Title Typography */

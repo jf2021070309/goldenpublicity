@@ -1,123 +1,410 @@
 ---
-// BrandPromoGallery.astro
-const eventImages = [
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento21.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento14.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento12-2.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento17.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento22.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento4-2.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento3-2.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento13.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento9-1.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento19.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento16.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento7-2.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento10-1.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento1.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento2-1.jpg?fit=770%2C770&ssl=1",
-  "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/evento5-2.jpg?fit=770%2C770&ssl=1"
+// BrandPromoGallery.astro (Experiencias BTL y Eventos Golden Publicity)
+const experiences = [
+  {
+    title: "Activación en Televisión en Vivo",
+    client: "Multimedios Televisión",
+    category: "television",
+    tag: "TV en Vivo",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-television-en-vivo.jpg"
+  },
+  {
+    title: "Activación Andamios Amarillos",
+    client: "Andamios Amarillos",
+    category: "btl",
+    tag: "Expo Industrial",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/andamios-amarillos-evento-activacion.jpg"
+  },
+  {
+    title: "Batucada & BTL Dinámico",
+    client: "Activación Callejera Monterrey",
+    category: "btl",
+    tag: "BTL Masivo",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/batucada-activacion-monterrey.jpg"
+  },
+  {
+    title: "Fashion Show & Runway de Moda",
+    client: "Galerías Valle Oriente",
+    category: "pasarela",
+    tag: "Fashion Show",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fashion-show-activacion.jpg"
+  },
+  {
+    title: "Activación PDV Soriana San Nicolás",
+    client: "Campaña Retail y Autoservicio",
+    category: "retail",
+    tag: "Punto de Venta",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana-san-nicolas.jpg"
+  },
+  {
+    title: "Activación Industrial en Sitio",
+    client: "Apodaca Industrial Park",
+    category: "btl",
+    tag: "Evento Corporativo",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-sitio-apodaca.jpg"
+  },
+  {
+    title: "Activación Promocional Fullock",
+    client: "Lanzamiento y Campaña de Marca",
+    category: "btl",
+    tag: "Activación VIP",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fullock-activacion.jpg"
+  },
+  {
+    title: "Medios Impresos y Gran Formato",
+    client: "Publicidad Exterior en Monterrey",
+    category: "impresos",
+    tag: "Impresos & Stands",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/medios-impresos-en-monterrey-scaled.jpg"
+  },
+  {
+    title: "Muestreo y Degustación en Tienda",
+    client: "Activaciones Soriana",
+    category: "retail",
+    tag: "Degustación",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana.jpg"
+  },
+  {
+    title: "Lanzamiento y Presencia de Marca",
+    client: "Eventos Especiales y Expos",
+    category: "eventos",
+    tag: "Lanzamiento VIP",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-evento.jpg"
+  }
 ];
 ---
 
-<section class="brand-promo-section">
-  <div class="container text-center">
-    <span class="section-subtitle">ESTAMOS LISTOS PARA SURFEAR</span>
-    <h2 class="section-title">¿Cómo quieres promocionar tu marca?</h2>
-    <p class="section-lead">
-      A lo largo de los años hemos participado en todo tipo de activaciones de marca, expos, eventos deportivos, conciertos, pasarelas y campañas BTL. Siempre con el objetivo de lograr una participación de alto impacto porque estamos comprometidos con el servicio; pero sobre todo, agradecidos con grandes marcas que han y siguen confiando en nuestra experiencia como Agencia de edecanes y modelos.
-    </p>
-  </div>
+<section class="experiences-section" id="experiencias">
+  <div class="container">
+    <div class="experiences-header text-center reveal-scroll">
+      <span class="section-kicker">Casos de Éxito & Experiencias BTL</span>
+      <h2 class="section-title">
+        Activaciones BTL de Alto Impacto<span class="dot">.</span>
+      </h2>
+      <p class="section-lead">
+        A lo largo de los años hemos participado en activaciones memorables en <strong>televisión en vivo, supermercados, centros comerciales, expos industriales y lanzamientos masivos</strong>. Cada proyecto está diseñado para crear una experiencia tangible y medible que enamora al consumidor.
+      </p>
+    </div>
 
-  <!-- Events Gallery Grid (4 columns, no spacing) -->
-  <div class="events-gallery">
-    {eventImages.map((src, i) => (
-      <div class="event-item">
-        <img src={src} alt={`Evento y Activación Surf #${i + 1}`} loading="lazy" />
-        <div class="event-overlay">
-          <i class="fa fa-instagram"></i>
+    <!-- Experiences Mosaic Grid -->
+    <div class="experiences-grid reveal-stagger">
+      {experiences.map((item, idx) => (
+        <div class={`exp-card ${idx === 0 || idx === 3 ? 'exp-card-large' : ''}`}>
+          <div class="exp-img-wrapper">
+            <img src={item.image} alt={`${item.title} - Golden Publicity`} loading="lazy" />
+            <div class="exp-gradient-overlay"></div>
+          </div>
+
+          <div class="exp-content">
+            <span class="exp-tag">{item.tag}</span>
+            <h3 class="exp-title">{item.title}</h3>
+            <p class="exp-client"><i class="fa fa-building-o"></i> {item.client}</p>
+          </div>
+
+          <div class="exp-hover-action">
+            <a 
+              href={`https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20interesa%20una%20activaci%C3%B3n%20similar%20a:%20${encodeURIComponent(item.title)}`}
+              target="_blank"
+              rel="noopener"
+              class="btn-exp-quote"
+            >
+              <i class="fa fa-whatsapp"></i> Cotizar Activación
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Gallery Call to Action -->
+    <div class="experiences-bottom-cta text-center reveal-scroll">
+      <div class="cta-inner-card glass-card">
+        <div class="cta-text-side">
+          <h3>¿Listo para activar tu marca con Golden Publicity?</h3>
+          <p>Creamos estrategias personalizadas que combinan staff, creatividad, sonido, impresión y logística integral.</p>
+        </div>
+        <div class="cta-buttons-side">
+          <a href="#contacto" class="btn-golden-primary">
+            <i class="fa fa-paper-plane"></i> Cotizar Mi Campaña
+          </a>
+          <a 
+            href="https://www.instagram.com/goldenpublicity23" 
+            target="_blank" 
+            rel="noopener" 
+            class="btn-golden-secondary"
+          >
+            <i class="fa fa-instagram"></i> Ver Más en Instagram
+          </a>
         </div>
       </div>
-    ))}
-  </div>
-
-  <div class="text-center gallery-cta">
-    <a 
-      href="https://instagram.com/agenciasurf" 
-      target="_blank" 
-      rel="noopener" 
-      class="btn-surf-accent"
-    >
-      Ver más eventos
-    </a>
+    </div>
   </div>
 </section>
 
 <style>
-  .brand-promo-section {
-    padding: 100px 0 60px;
-    background: #ffffff;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .events-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-    margin-top: 50px;
-  }
-
-  .event-item {
+  .experiences-section {
+    padding: 100px 0 90px;
+    background-color: #ffffff;
     position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    cursor: pointer;
   }
 
-  .event-item img {
+  .experiences-header {
+    max-width: 860px;
+    margin: 0 auto 55px;
+  }
+
+
+
+  /* Grid Layout */
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .exp-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 340px;
+    box-shadow: 0 10px 25px rgba(6, 43, 92, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    cursor: pointer;
+    background: var(--color-navy);
+  }
+
+  .exp-card-large {
+    grid-column: span 2;
+  }
+
+  .exp-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(255, 75, 0, 0.2);
+  }
+
+  .exp-img-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .exp-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .event-item:hover img {
+  .exp-card:hover .exp-img-wrapper img {
     transform: scale(1.08);
   }
 
-  .event-overlay {
+  .exp-gradient-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(255, 75, 0, 0.78);
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.15) 0%, rgba(6, 43, 92, 0.5) 50%, rgba(6, 43, 92, 0.95) 100%);
+    transition: background 0.3s ease;
+  }
+
+  .exp-card:hover .exp-gradient-overlay {
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.25) 0%, rgba(255, 75, 0, 0.4) 50%, rgba(6, 43, 92, 0.98) 100%);
+  }
+
+  .exp-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .exp-tag {
+    display: inline-block;
+    background: var(--color-orange);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .exp-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .exp-client {
+    font-size: 0.88rem;
+    color: #cbd5e1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
+  }
+
+  .exp-hover-action {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 2.2rem;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 4;
+  }
+
+  .exp-card:hover .exp-hover-action {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .btn-exp-quote {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #25D366;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 999px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .btn-exp-quote:hover {
+    background: #1eb956;
+    transform: scale(1.05);
+  }
+
+  /* Bottom CTA Card */
+  .cta-inner-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 45px;
+    border-radius: 20px;
+    text-align: left;
+    gap: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 249, 252, 0.95));
+    border: 1px solid rgba(255, 75, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(6, 43, 92, 0.08);
+  }
+
+  .cta-text-side h3 {
+    font-size: 1.6rem;
+    color: var(--color-navy);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .cta-text-side p {
+    font-size: 1rem;
+    color: #475569;
+    margin: 0;
+  }
+
+  .cta-buttons-side {
+    display: flex;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .btn-golden-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-orange);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(255, 75, 0, 0.35);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-golden-primary:hover {
+    background: var(--color-navy);
+    transform: translateY(-2px);
     color: #ffffff;
   }
 
-  .event-item:hover .event-overlay {
-    opacity: 1;
+  .btn-golden-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-navy);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    transition: var(--transition-smooth);
   }
 
-  .gallery-cta {
-    margin-top: 45px;
+  .btn-golden-secondary:hover {
+    background: var(--color-orange);
+    transform: translateY(-2px);
+    color: #ffffff;
   }
 
+  /* Responsive */
   @media (max-width: 992px) {
-    .events-gallery {
-      grid-template-columns: repeat(3, 1fr);
+    .experiences-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exp-card-large {
+      grid-column: span 1;
+    }
+
+    .cta-inner-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-buttons-side {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-golden-primary,
+    .btn-golden-secondary {
+      width: 100%;
+      justify-content: center;
     }
   }
 
   @media (max-width: 600px) {
-    .events-gallery {
-      grid-template-columns: repeat(2, 1fr);
+    .experiences-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-card {
+      height: 280px;
+    }
+
+    .cta-inner-card {
+      padding: 30px 20px;
+    }
+
+    .cta-text-side h3 {
+      font-size: 1.3rem;
     }
   }
 </style>

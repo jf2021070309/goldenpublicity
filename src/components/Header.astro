@@ -8,14 +8,9 @@
     <div class="logo-area">
       <a href="/" class="logo-link">
         <img 
-          src="https://agenciasurf.mx/wp-content/uploads/2022/02/logo_surf_edecanes_light.png" 
+          src="https://www.goldenpublicity.com.mx/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-12-at-3.21.22-PM.jpeg" 
           alt="Golden Publicity Logo" 
-          class="logo-img logo-light" 
-        />
-        <img 
-          src="https://agenciasurf.mx/wp-content/uploads/2022/02/logo_surf_edecanes_dark.png" 
-          alt="Golden Publicity Logo" 
-          class="logo-img logo-dark" 
+          class="logo-img logo-golden" 
         />
       </a>
     </div>
@@ -24,29 +19,22 @@
     <nav class="desktop-nav">
       <ul class="nav-list">
         <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
-        <li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li class="nav-item"><a href="#equipo-surf" class="nav-link">Talento</a></li>
+        <li class="nav-item"><a href="#experiencias" class="nav-link">Activaciones BTL</a></li>
         <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li class="nav-item"><a href="#cobertura" class="nav-link">Cobertura</a></li>
         <li class="nav-item"><a href="#clientes" class="nav-link">Clientes</a></li>
-        <li class="nav-item dropdown">
-          <a href="#equipo-surf" class="nav-link dropdown-toggle">
-            Equipo Golden Publicity <i class="fa fa-angle-down"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#equipo-surf" data-filter="cdmx">Edecanes CDMX</a></li>
-            <li><a href="#equipo-surf" data-filter="puebla">Edecanes Puebla</a></li>
-          </ul>
-        </li>
         <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
       </ul>
     </nav>
 
     <!-- Social / Actions -->
     <div class="header-actions">
-      <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
-        <i class="fa fa-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+      <a href="https://www.instagram.com/goldenpublicity23" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
         <i class="fa fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100090488202295&mibextid=ZbWKwL" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+        <i class="fa fa-facebook"></i>
       </a>
       <a href="#contacto" class="quote-btn">Cotizar</a>
       
@@ -64,23 +52,18 @@
     <div class="mobile-drawer-inner">
       <ul class="mobile-nav-list">
         <li><a href="/" class="mobile-nav-link active">Inicio</a></li>
-        <li><a href="#nosotros" class="mobile-nav-link">Nosotros</a></li>
+        <li><a href="#equipo-surf" class="mobile-nav-link">Talento & Modelos</a></li>
+        <li><a href="#experiencias" class="mobile-nav-link">Activaciones BTL</a></li>
         <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+        <li><a href="#cobertura" class="mobile-nav-link">Cobertura</a></li>
         <li><a href="#clientes" class="mobile-nav-link">Clientes</a></li>
-        <li class="mobile-has-sub">
-          <span class="mobile-sub-title">Equipo Golden Publicity</span>
-          <ul class="mobile-sub-list">
-            <li><a href="#equipo-surf" class="mobile-sub-link">Edecanes CDMX</a></li>
-            <li><a href="#equipo-surf" class="mobile-sub-link">Edecanes Puebla</a></li>
-          </ul>
-        </li>
         <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
       </ul>
 
       <div class="mobile-socials">
-        <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a>
-        <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener"><i class="fa fa-music"></i> TikTok</a>
+        <a href="https://www.instagram.com/goldenpublicity23" target="_blank" rel="noopener"><i class="fa fa-instagram"></i> Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100090488202295&mibextid=ZbWKwL" target="_blank" rel="noopener"><i class="fa fa-facebook"></i> Facebook</a>
+        <a href="https://wa.me/5218116837738" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i> 81 1683 7738</a>
       </div>
     </div>
   </div>
@@ -166,21 +149,18 @@
   }
 
   .logo-img {
-    height: 40px;
+    height: 46px;
     width: auto;
-    transition: opacity 0.3s ease;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
   }
 
-  .logo-dark {
-    display: none;
-  }
-
-  .header.scrolled .logo-light {
-    display: none;
-  }
-
-  .header.scrolled .logo-dark {
-    display: block;
+  .logo-link:hover .logo-img {
+    transform: scale(1.04);
   }
 
   /* Desktop Nav */

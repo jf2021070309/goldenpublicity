@@ -1,161 +1,401 @@
 ---
-// ServicesSection.astro
-const services = [
+// ServicesSection.astro (Servicios Golden Publicity - Bento Showcase)
+const featuredServices = [
   {
-    title: "Edecanes y Modelos",
-    desc: "Nos especializamos en perfiles con diferentes rasgos según la campaña, evento o estilo que requiera tu marca, desde perfiles ejecutivos hasta looks alternativos.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_cdmx_puebla-2.jpg?fit=450%2C300&ssl=1"
+    title: "Activaciones de Marca BTL & Guerrilla",
+    kicker: "Muestreo & Interacción Masiva",
+    desc: "Estrategias de alto impacto en calle, plazas comerciales y supermercados. Creamos dinámicas con premios, batucadas, botargas y sampling para impulsar la decisión de compra.",
+    bullets: ["Muestreo de Producto & Degustación", "Batucadas & Perifoneo en Calles", "Dinámicas con Premios en Punto de Venta"],
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/batucada-activacion-monterrey.jpg"
   },
   {
-    title: "Eventos Masivos",
-    desc: "Brindamos un selecto equipo de Modelos, Edecanes o Personal de Imagen con el nivel que tu marca/evento requiere, muy útil dentro de eventos deportivos, musicales o sociales.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_estadio_festivales-1.jpg?fit=450%2C300&ssl=1"
+    title: "Modelos, Edecanes AA y AAA",
+    kicker: "Imagen & Protocolo Corporativo",
+    desc: "Casting calificado de talento con excelente dicción, presencia y carisma. Ideales para congresos médicos, ferias industriales en Cintermex, pasarelas y eventos de etiqueta.",
+    bullets: ["Edecanes AAA Bilingües de Protocolo", "Modelos de Pasarela y Campañas de Moda", "Gios y Animadores de Marca Masivos"],
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/481081343_591701567189445_26101683362706153_n.jpg"
+  }
+];
+
+const compactServices = [
+  {
+    icon: "fa-building-o",
+    title: "Expos Comerciales & Stands",
+    desc: "Atracción de prospectos a tu stand, acreditación y atención a directivos.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/andamios-amarillos-evento-activacion.jpg"
   },
   {
-    title: "Generación de contenido",
-    desc: "Una imagen atractiva y una idea genial son la combinación perfecta para crear contenido digital como catálogos, videos o arte digital para cautivar seguidores hoy en día.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_redes_sociales1-1.jpg?fit=450%2C300&ssl=1"
+    icon: "fa-print",
+    title: "Medios Impresos & Uniformes",
+    desc: "Taller propio de impresión gran formato, lonas, displays y uniformes custom.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/medios-impresos-en-monterrey-scaled.jpg"
   },
   {
-    title: "Expos y Convenciones",
-    desc: "El lugar ideal para personificar tu marca haciendo que los rasgos y características del personal sean fundamentales para atraer miradas y clientes potenciales.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_expos2-1.jpg?fit=450%2C300&ssl=1"
+    icon: "fa-video-camera",
+    title: "Producción Audiovisual & TV",
+    desc: "Cápsulas en televisión (Multimedios TV), foto profesional y video para redes.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-television-en-vivo.jpg"
   },
   {
-    title: "Equipo de Staff (Staff Support)",
-    desc: "Coordinamos un equipo de trabajo comprometido con las actividades de logística encomendadas para que tu evento se realice de manera exitosa.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_staff_evento.jpg?fit=450%2C300&ssl=1"
-  },
-  {
-    title: "BTL",
-    desc: "La sorpresa, la creatividad o la ocasión, son fundamentales para crear una promoción diferente, permítenos ser parte de una idea genial.",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/servicios_edecanes_btl-2.jpg?fit=450%2C300&ssl=1"
+    icon: "fa-calendar-check-o",
+    title: "Organización Integral & Staff",
+    desc: "Logística completa: audio, iluminación, montaje, carpas y supervisores en campo.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fullock-activacion.jpg"
   }
 ];
 ---
 
 <section class="services-section" id="servicios">
   <div class="container">
-    <div class="services-header text-center">
-      <span class="section-subtitle">SOLUCIONES INTEGRALES</span>
+    <div class="services-header text-center reveal-scroll">
+      <span class="section-kicker">Soluciones Estratégicas</span>
       <h2 class="section-title">
-        Nuestros Servicios<span class="dot">.</span>
+        Nuestros Servicios Especializados<span class="dot">.</span>
       </h2>
       <p class="section-lead">
-        Descubre cómo impulsamos la presencia de tu marca con talento calificado, imagen impecable y coordinación profesional.
+        Brindamos soluciones 360° que integran talento, estrategia BTL, medios publicitarios y soporte logístico en campo para cualquier tipo de evento en México.
       </p>
     </div>
 
-    <!-- 6 Services Grid -->
-    <div class="services-grid">
-      {services.map(svc => (
-        <div class="service-card">
-          <div class="service-img-holder">
-            <img src={svc.image} alt={svc.title} loading="lazy" />
-          </div>
-          <div class="service-content">
-            <h3 class="service-title">{svc.title}</h3>
-            <p class="service-desc">{svc.desc}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <!-- Bento Grid Showcase -->
+    <div class="services-bento-grid">
+      <!-- 2 Large Featured Bento Cards -->
+      <div class="featured-bento-row reveal-stagger">
+        {featuredServices.map(svc => (
+          <div class="bento-featured-card">
+            <div class="bento-img-bg">
+              <img src={svc.image} alt={svc.title} loading="lazy" />
+              <div class="bento-gradient-cover"></div>
+            </div>
 
-    <div class="text-center services-cta">
-      <a href="#contacto" class="btn-surf-accent">
-        Ver otros servicios
-      </a>
+            <div class="bento-featured-content">
+              <span class="bento-kicker">{svc.kicker}</span>
+              <h3 class="bento-title">{svc.title}</h3>
+              <p class="bento-desc">{svc.desc}</p>
+
+              <ul class="bento-bullets">
+                {svc.bullets.map(b => (
+                  <li><i class="fa fa-check-circle"></i> {b}</li>
+                ))}
+              </ul>
+
+              <div class="bento-action">
+                <a 
+                  href={`https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20interesa%20el%20servicio%20de:%20${encodeURIComponent(svc.title)}`}
+                  target="_blank" 
+                  rel="noopener" 
+                  class="btn-bento-cta"
+                >
+                  <span>Cotizar Servicio</span>
+                  <i class="fa fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- 4 Compact Bento Cards Row -->
+      <div class="compact-bento-row reveal-stagger">
+        {compactServices.map(svc => (
+          <div class="bento-compact-card">
+            <div class="compact-thumb">
+              <img src={svc.image} alt={svc.title} loading="lazy" />
+              <div class="compact-icon-badge">
+                <i class={`fa ${svc.icon}`}></i>
+              </div>
+            </div>
+            <div class="compact-info">
+              <h4 class="compact-title">{svc.title}</h4>
+              <p class="compact-desc">{svc.desc}</p>
+              <a 
+                href={`https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20deseo%20cotizar:%20${encodeURIComponent(svc.title)}`}
+                target="_blank" 
+                rel="noopener" 
+                class="compact-link"
+              >
+                <span>Cotizar</span> <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .services-section {
-    padding: 100px 0 90px;
-    background-color: #fafafa;
-  }
-
-  .text-center {
-    text-align: center;
+    padding: 110px 0 100px;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
   }
 
   .services-header {
-    margin-bottom: 60px;
+    max-width: 820px;
+    margin: 0 auto 60px;
   }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
-  }
-
-  .service-card {
-    background: #ffffff;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border-bottom: 3px solid transparent;
-    transition: var(--transition-smooth);
+  /* Bento Grid */
+  .services-bento-grid {
     display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 
-  .service-card:hover {
+  /* Featured Row */
+  .featured-bento-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .bento-featured-card {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 15px 40px rgba(6, 43, 92, 0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  }
+
+  .bento-featured-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 36px rgba(6, 43, 92, 0.12);
-    border-bottom-color: var(--color-orange);
+    box-shadow: 0 25px 50px rgba(255, 75, 0, 0.2);
   }
 
-  .service-img-holder {
+  .bento-img-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
+  }
+
+  .bento-img-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bento-featured-card:hover .bento-img-bg img {
+    transform: scale(1.08);
+  }
+
+  .bento-gradient-cover {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.2) 0%, rgba(6, 43, 92, 0.75) 45%, rgba(6, 43, 92, 0.98) 100%);
+  }
+
+  .bento-featured-content {
+    position: relative;
+    z-index: 2;
+    padding: 38px 34px 34px;
+    color: #ffffff;
+  }
+
+  .bento-kicker {
+    display: inline-block;
+    color: var(--color-orange);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .bento-title {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .bento-desc {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .bento-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bento-bullets li {
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bento-bullets i {
+    color: var(--color-orange);
+  }
+
+  .btn-bento-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-orange);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    transition: var(--transition-smooth);
+    box-shadow: 0 6px 18px rgba(255, 75, 0, 0.4);
+  }
+
+  .btn-bento-cta:hover {
+    background: #ffffff;
+    color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+
+  /* Compact Bento Row */
+  .compact-bento-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .bento-compact-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(6, 43, 92, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s ease;
+  }
+
+  .bento-compact-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 75, 0, 0.3);
+    box-shadow: 0 16px 35px rgba(255, 75, 0, 0.12);
+  }
+
+  .compact-thumb {
+    position: relative;
+    width: 100%;
+    height: 150px;
     overflow: hidden;
   }
 
-  .service-img-holder img {
+  .compact-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
 
-  .service-card:hover .service-img-holder img {
-    transform: scale(1.06);
+  .bento-compact-card:hover .compact-thumb img {
+    transform: scale(1.08);
   }
 
-  .service-content {
-    padding: 26px 22px 30px;
-    flex: 1;
+  .compact-icon-badge {
+    position: absolute;
+    bottom: -16px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--color-navy);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .bento-compact-card:hover .compact-icon-badge {
+    background: var(--color-orange);
+    color: #ffffff;
+    transform: rotate(10deg);
+  }
+
+  .compact-info {
+    padding: 24px 20px 20px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
   }
 
-  .service-title {
-    font-size: 1.35rem;
-    color: #222222;
+  .compact-title {
+    font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
-  .service-desc {
-    font-size: 0.95rem;
-    color: #666666;
-    line-height: 1.6;
+  .compact-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
   }
 
-  .services-cta {
-    margin-top: 55px;
+  .compact-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: gap 0.25s ease;
   }
 
-  @media (max-width: 992px) {
-    .services-grid {
+  .compact-link:hover {
+    gap: 10px;
+    color: var(--color-navy);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .featured-bento-row {
+      grid-template-columns: 1fr;
+    }
+
+    .compact-bento-row {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 650px) {
-    .services-grid {
+  @media (max-width: 600px) {
+    .compact-bento-row {
       grid-template-columns: 1fr;
+    }
+
+    .bento-featured-content {
+      padding: 28px 20px 20px;
+    }
+
+    .bento-title {
+      font-size: 1.4rem;
     }
   }
 </style>

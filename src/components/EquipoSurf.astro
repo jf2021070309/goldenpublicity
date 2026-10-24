@@ -1,149 +1,241 @@
 ---
-// EquipoSurf.astro
+// EquipoSurf.astro (Equipo Golden Publicity)
 const models = [
   {
-    id: "chelsa",
-    name: "Chelsa",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/chelsa.webp?fit=550%2C1100&ssl=1"
+    id: "edecanes-aaa",
+    name: "Equipo Edecanes AAA",
+    role: "Edecanes AAA & Imagen",
+    city: "Monterrey / Cobertura Nacional",
+    category: "edecanes",
+    tag: "Edecanes AAA",
+    stats: "Estatura: 1.72m - 1.78m | Bilingüe",
+    desc: "Presencia impecable y protocolo en congresos médicos, expos industriales en Cintermex y eventos corporativos de alto nivel.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/481081343_591701567189445_26101683362706153_n.jpg"
   },
   {
-    id: "ingrid",
-    name: "Ingrid",
-    city: "En Puebla",
-    category: "puebla",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/ingrid.jpg?fit=550%2C1100&ssl=1"
+    id: "modelos-runway",
+    name: "Modelos Runway & Moda",
+    role: "Pasarela & Editorial",
+    city: "San Pedro Garza García / CDMX",
+    category: "modelos",
+    tag: "Pasarela & Moda",
+    stats: "Pasarela de Lujo | Sesiones Lookbook",
+    desc: "Talento perfilado para lanzamientos de temporada, comerciales de televisión, campañas publicitarias impresas y digitales.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/09/bac6122e-bde0-4329-9fc6-1d7fb6a53530.jpg"
   },
   {
-    id: "laura",
-    name: "Laura",
-    city: "En Puebla",
-    category: "puebla",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/laura-1.webp?fit=550%2C1100&ssl=1"
+    id: "staff-btl",
+    name: "Staff BTL & Animación",
+    role: "Activaciones Masivas",
+    city: "Área Metropolitana de Monterrey",
+    category: "btl",
+    tag: "Activaciones BTL",
+    stats: "Alto Carisma | Proactividad en Campo",
+    desc: "Generación de interacción con el público consumidor, volanteo dinámico, entrega de souvenirs y dinámicas con premios.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/09/f72f9e3d-9aa4-40a2-a181-05828cc506bc.jpg"
   },
   {
-    id: "lulu",
-    name: "Lulú",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2017/06/lulu.webp?fit=550%2C1100&ssl=1"
+    id: "hostess-vip",
+    name: "Hostess de Protocolo VIP",
+    role: "Recepción Corporativa",
+    city: "San Pedro / Monterrey",
+    category: "hostess",
+    tag: "Hostess Ejecutiva",
+    stats: "Atención Protocolaria | Excelente Dicción",
+    desc: "Control de acceso, bienvenida a directivos, acreditación en congresos y entrega de kits de bienvenida en eventos VIP.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/3.jpg"
   },
   {
-    id: "montse",
-    name: "Montse",
-    city: "En Puebla",
-    category: "puebla",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/montse.webp?fit=550%2C1100&ssl=1"
+    id: "edecanes-ferias",
+    name: "Edecanes Comerciales AA",
+    role: "Expos & Stands",
+    city: "Monterrey / Guadalajara / Puebla",
+    category: "edecanes",
+    tag: "Expos & Ferias",
+    stats: "Ventas & Muestreo | Imagen Dinámica",
+    desc: "Atracción de prospectos a tu stand, explicación de fichas técnicas de producto y toma de datos comerciales de clientes.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/2.jpg"
   },
   {
-    id: "nicole",
-    name: "Nicole",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/nicole.webp?fit=550%2C1100&ssl=1"
+    id: "fashion-show",
+    name: "Pasarelas de Temporada",
+    role: "Fashion Shows & Eventos",
+    city: "Plazas Comerciales & Auditorios",
+    category: "modelos",
+    tag: "Fashion Shows",
+    stats: "Experiencia en Pasarela | Coreografía",
+    desc: "Desfiles de moda para centros comerciales, presentaciones de colecciones departamentales y aperturas de boutiques.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fashion-show-activacion.jpg"
   },
   {
-    id: "olena",
-    name: "Olena",
-    city: "En Puebla",
-    category: "puebla",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/olena.webp?fit=550%2C1100&ssl=1"
+    id: "promocion-retail",
+    name: "Promotoras Punto de Venta",
+    role: "Degustación & Retail",
+    city: "Supermercados & Centros Comerciales",
+    category: "btl",
+    tag: "Retail & Autoservicio",
+    stats: "Demostración de Marca | Impulso de Ventas",
+    desc: "Demostración directa al shopper en tiendas de autoservicio (Soriana, HEB, Walmart) y activación de promociones.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana-san-nicolas.jpg"
   },
   {
-    id: "paula",
-    name: "Paula",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/paula_1.jpg?fit=550%2C1100&ssl=1"
-  },
-  {
-    id: "raissa",
-    name: "Raissa",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/raissa.webp?fit=550%2C1100&ssl=1"
-  },
-  {
-    id: "sasha",
-    name: "Sasha",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/sasha.webp?fit=550%2C1100&ssl=1"
-  },
-  {
-    id: "shugey",
-    name: "Shugey",
-    city: "En Puebla",
-    category: "puebla",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/shugey.jpg?fit=550%2C1100&ssl=1"
-  },
-  {
-    id: "vey",
-    name: "Vey",
-    city: "En CDMX",
-    category: "cdmx",
-    image: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/veyra_1.webp?fit=550%2C1100&ssl=1"
+    id: "gios-eventos",
+    name: "Gios & Animadores de Marca",
+    role: "Eventos Masivos & Deportivos",
+    city: "Estadios / Conciertos / Calles",
+    category: "hostess",
+    tag: "Gios & Animación",
+    stats: "Energía Contagiosa | Dinámicas Masivas",
+    desc: "Presencia en carreras 5K/10K, activaciones en estadios, eventos de marcas de bebidas y animadores con micrófono.",
+    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-evento.jpg"
   }
 ];
 ---
 
-<section class="equipo-surf-section" id="equipo-surf">
-  <div class="equipo-header-area">
-    <div class="container text-center">
+<section class="equipo-golden-section" id="equipo-surf">
+  <div class="container">
+    <!-- Header -->
+    <div class="equipo-header-area reveal-scroll">
+      <span class="section-kicker">Talento Profesional & Presencia de Marca</span>
       <span class="section-subtitle">GRANDES MARCAS, GRAN EQUIPO</span>
       <h2 class="section-title">
         Equipo Golden Publicity<span class="dot">.</span>
       </h2>
       <p class="section-lead">
-        Posicionados como una Agencia de Edecanes y Modelos confiables en la zona centro y sur del país, contamos con un selecto grupo de talentos con la imagen ideal para representar tu marca de forma impecable, generando una interacción de <strong>alto impacto</strong> con el consumidor. Tenemos amplia experiencia en todo tipo de eventos, estando siempre presentes en las principales expos, eventos y sedes de las ciudades donde tenemos cobertura.
+        Consolidados como una agencia de referencia en <strong>Medios Publicitarios, BTL, Edecanes y Modelos</strong> en Monterrey, San Pedro Garza García y con cobertura en toda la República Mexicana. Ponemos a tu disposición un talentoso y calificado equipo para representar a tu marca con <strong>máximo impacto, profesionalismo y distinción</strong> en expos, eventos masivos y campañas BTL.
       </p>
-      <a href="#contacto" class="btn-surf-accent">Solicitar Book</a>
-      <p class="featured-notice"><em>*Integrantes destacadas de este mes:</em></p>
 
-      <!-- Filter Tabs -->
-      <div class="model-filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="cdmx">En CDMX</button>
-        <button class="filter-btn" data-filter="puebla">En Puebla</button>
+      <div class="header-actions">
+        <a href="#contacto" class="btn-golden-primary">
+          <i class="fa fa-book"></i> Solicitar Book de Talentos
+        </a>
+        <a href="https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20gustar%C3%ADa%20solicitar%20el%20book%20de%20talentos%20y%20edecanes" target="_blank" rel="noopener" class="btn-golden-whatsapp">
+          <i class="fa fa-whatsapp"></i> Cotizar por WhatsApp
+        </a>
       </div>
+
+      <!-- Modern Filter Pills -->
+      <div class="talent-filter-bar">
+        <button class="filter-chip active" data-filter="all">
+          <i class="fa fa-th-large"></i> Todos los Perfiles
+        </button>
+        <button class="filter-chip" data-filter="edecanes">
+          <i class="fa fa-check-circle"></i> Edecanes AA y AAA
+        </button>
+        <button class="filter-chip" data-filter="modelos">
+          <i class="fa fa-camera"></i> Modelos & Pasarela
+        </button>
+        <button class="filter-chip" data-filter="btl">
+          <i class="fa fa-bullhorn"></i> Activaciones BTL
+        </button>
+        <button class="filter-chip" data-filter="hostess">
+          <i class="fa fa-user"></i> Gios & Hostess VIP
+        </button>
+      </div>
+    </div>
+
+    <!-- Modern Talent Grid -->
+    <div class="talent-grid reveal-stagger" id="models-container">
+      {models.map(model => (
+        <div 
+          class="talent-card" 
+          data-category={model.category}
+          data-name={model.name}
+          data-role={model.role}
+          data-city={model.city}
+          data-stats={model.stats}
+          data-desc={model.desc}
+          data-img={model.image}
+        >
+          <div class="card-image-box">
+            <img 
+              src={model.image} 
+              alt={`${model.name} - Golden Publicity`} 
+              loading="lazy" 
+            />
+            <div class="card-status-pill">
+              <span class="status-indicator"></span> Disponible
+            </div>
+            <div class="card-category-badge">
+              {model.tag}
+            </div>
+            
+            <div class="card-hover-overlay">
+              <button class="btn-view-profile" aria-label="Ver detalles">
+                <i class="fa fa-search-plus"></i> Ver Perfil Completo
+              </button>
+            </div>
+          </div>
+
+          <div class="card-details-box">
+            <div class="card-meta">
+              <span class="city-location">
+                <i class="fa fa-map-marker"></i> {model.city}
+              </span>
+            </div>
+            <h3 class="talent-title">{model.name}</h3>
+            <p class="talent-role">{model.role}</p>
+            <p class="talent-short-desc">{model.desc}</p>
+            
+            <div class="card-footer-action">
+              <span class="talent-specs">{model.stats}</span>
+              <a 
+                href={`https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20deseo%20cotizar%20el%20perfil%20de%20${encodeURIComponent(model.name)}`}
+                target="_blank" 
+                rel="noopener"
+                class="direct-quote-link"
+                title="Cotizar este perfil"
+              >
+                <i class="fa fa-whatsapp"></i> Cotizar
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Notice -->
+    <div class="talent-footer-note reveal-scroll">
+      <p>
+        <i class="fa fa-shield"></i> Todo nuestro talento cuenta con riguroso proceso de casting, puntualidad garantizada, imagen profesional y supervisión directa de coordinadores en campo.
+      </p>
     </div>
   </div>
 
-  <!-- Models Grid -->
-  <div class="models-grid" id="models-container">
-    {models.map(model => (
-      <div 
-        class="model-card" 
-        data-category={model.category}
-        data-name={model.name}
-        data-city={model.city}
-        data-img={model.image}
-      >
-        <div class="model-img-wrapper">
-          <img src={model.image} alt={`Modelo ${model.name} - Golden Publicity`} loading="lazy" />
+  <!-- Interactive Lightbox Modal -->
+  <div id="talent-modal" class="talent-modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modal-close" aria-label="Cerrar modal">&times;</button>
+      <div class="modal-content-grid">
+        <div class="modal-image-col">
+          <img id="modal-img" src="" alt="Talento Golden Publicity" />
         </div>
-        <div class="model-overlay">
-          <div class="model-info">
-            <h3 class="model-name">{model.name}</h3>
-            <span class="model-city">{model.city}</span>
+        <div class="modal-info-col">
+          <span class="modal-badge" id="modal-category">Edecanes AAA</span>
+          <h3 class="modal-title" id="modal-name">Nombre</h3>
+          <p class="modal-role" id="modal-role">Especialidad</p>
+          <div class="modal-divider"></div>
+          
+          <div class="modal-meta-row">
+            <span class="modal-meta-item">
+              <i class="fa fa-map-marker"></i> <strong id="modal-city">Ciudad</strong>
+            </span>
+            <span class="modal-meta-item">
+              <i class="fa fa-check-circle"></i> <span id="modal-stats">Specs</span>
+            </span>
           </div>
-        </div>
-      </div>
-    ))}
-  </div>
 
-  <!-- Lightbox Modal -->
-  <div id="model-lightbox" class="model-lightbox">
-    <div class="lightbox-backdrop"></div>
-    <div class="lightbox-modal">
-      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar modal">&times;</button>
-      <div class="lightbox-body">
-        <img id="lightbox-img" src="" alt="Detalle de modelo" />
-        <div class="lightbox-caption">
-          <h3 id="lightbox-name"></h3>
-          <span id="lightbox-city"></span>
-          <a href="#contacto" class="btn-surf-accent mt-3">Cotizar Perfil</a>
+          <p class="modal-desc" id="modal-desc">Descripción del talento</p>
+
+          <div class="modal-cta-group">
+            <a id="modal-wa-btn" href="#" target="_blank" rel="noopener" class="btn-golden-primary full-width">
+              <i class="fa fa-whatsapp"></i> Cotizar Este Perfil por WhatsApp
+            </a>
+            <a href="#contacto" class="btn-golden-secondary full-width" id="modal-contact-link">
+              <i class="fa fa-envelope-o"></i> Solicitar Book Completo
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -152,282 +244,678 @@ const models = [
 
 <script>
   // Filter Functionality
-  const filterBtns = document.querySelectorAll<HTMLElement>('.filter-btn');
-  const modelCards = document.querySelectorAll<HTMLElement>('.model-card');
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+  const talentCards = document.querySelectorAll<HTMLElement>('.talent-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filter = btn.dataset.filter;
-      modelCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = 'block';
+      const filterValue = btn.getAttribute('data-filter');
+
+      talentCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 30);
         } else {
-          card.style.display = 'none';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(15px) scale(0.97)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
         }
       });
     });
   });
 
-  // Lightbox Modal Functionality
-  const lightbox = document.getElementById('model-lightbox');
-  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-  const lightboxName = document.getElementById('lightbox-name');
-  const lightboxCity = document.getElementById('lightbox-city');
-  const lightboxClose = document.getElementById('lightbox-close');
+  // Lightbox Modal
+  const modal = document.getElementById('talent-modal');
+  const backdrop = document.getElementById('modal-backdrop');
+  const closeBtn = document.getElementById('modal-close');
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const modalName = document.getElementById('modal-name');
+  const modalRole = document.getElementById('modal-role');
+  const modalCity = document.getElementById('modal-city');
+  const modalStats = document.getElementById('modal-stats');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalCat = document.getElementById('modal-category');
+  const modalWaBtn = document.getElementById('modal-wa-btn') as HTMLAnchorElement;
+  const modalContactLink = document.getElementById('modal-contact-link');
 
-  modelCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const name = card.dataset.name || '';
-      const city = card.dataset.city || '';
-      const img = card.dataset.img || '';
+  const openModal = (card: HTMLElement) => {
+    const name = card.getAttribute('data-name') || '';
+    const role = card.getAttribute('data-role') || '';
+    const city = card.getAttribute('data-city') || '';
+    const stats = card.getAttribute('data-stats') || '';
+    const desc = card.getAttribute('data-desc') || '';
+    const category = card.getAttribute('data-category') || '';
+    const img = card.getAttribute('data-img') || '';
 
-      if (lightboxImg) lightboxImg.src = img;
-      if (lightboxName) lightboxName.textContent = name;
-      if (lightboxCity) lightboxCity.textContent = city;
-      lightbox?.classList.add('open');
-    });
+    if (modalImg) modalImg.src = img;
+    if (modalName) modalName.textContent = name;
+    if (modalRole) modalRole.textContent = role;
+    if (modalCity) modalCity.textContent = city;
+    if (modalStats) modalStats.textContent = stats;
+    if (modalDesc) modalDesc.textContent = desc;
+    if (modalCat) modalCat.textContent = category.toUpperCase();
+
+    if (modalWaBtn) {
+      modalWaBtn.href = `https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20interesa%20cotizar%20el%20perfil%20de%20${encodeURIComponent(name)}%20para%20un%20evento`;
+    }
+
+    if (modal) {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  talentCards.forEach(card => {
+    card.addEventListener('click', () => openModal(card));
   });
 
-  lightboxClose?.addEventListener('click', () => {
-    lightbox?.classList.remove('open');
-  });
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+  modalContactLink?.addEventListener('click', closeModal);
 
-  lightbox?.querySelector('.lightbox-backdrop')?.addEventListener('click', () => {
-    lightbox?.classList.remove('open');
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 
 <style>
-  .equipo-surf-section {
-    padding: 100px 0 0;
-    background: #ffffff;
-    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/bg-h1-5.jpg');
-    background-position: right top;
-    background-repeat: no-repeat;
-  }
-
-  .text-center {
-    text-align: center;
+  .equipo-golden-section {
+    padding: 110px 0 90px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+    position: relative;
+    overflow: hidden;
   }
 
   .equipo-header-area {
-    margin-bottom: 50px;
+    text-align: center;
+    max-width: 920px;
+    margin: 0 auto 55px;
   }
 
-  .featured-notice {
-    margin-top: 24px;
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
+  .header-badge-wrapper {
+    margin-bottom: 16px;
   }
 
-  .model-filters {
+  .header-actions {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
   }
 
-  .filter-btn {
+  .btn-golden-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-orange);
+    color: #ffffff;
     font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: 1px solid #e0e0e0;
-    background: #ffffff;
-    color: #555555;
+    padding: 15px 32px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(255, 75, 0, 0.35);
     transition: var(--transition-smooth);
   }
 
-  .filter-btn.active, .filter-btn:hover {
-    background: var(--color-orange);
+  .btn-golden-primary:hover {
+    background: var(--color-navy);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(6, 43, 92, 0.3);
     color: #ffffff;
-    border-color: var(--color-orange);
   }
 
-  /* Models Grid (No space between gallery items matching Mikado style) */
-  .models-grid {
+  .btn-golden-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #25D366;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 32px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-golden-whatsapp:hover {
+    background: #1eb956;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
+    color: #ffffff;
+  }
+
+  .btn-golden-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f1f5f9;
+    color: var(--color-navy);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-golden-secondary:hover {
+    background: #e2e8f0;
+    color: var(--color-orange);
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  /* Filter Bar */
+  .talent-filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #ffffff;
+    border-radius: 999px;
+    box-shadow: 0 4px 20px rgba(6, 43, 92, 0.06);
+    border: 1px solid #eef2f6;
+    display: inline-flex;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    background: transparent;
+    transition: var(--transition-smooth);
+  }
+
+  .filter-chip:hover {
+    color: var(--color-orange);
+    background: rgba(255, 75, 0, 0.06);
+  }
+
+  .filter-chip.active {
+    background: var(--color-navy);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(6, 43, 92, 0.25);
+  }
+
+  /* Talent Grid */
+  .talent-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-bottom: 50px;
   }
 
-  .model-card {
-    position: relative;
-    cursor: pointer;
+  .talent-card {
+    background: #ffffff;
+    border-radius: 18px;
     overflow: hidden;
-    aspect-ratio: 1 / 2;
-    background: #000000;
+    box-shadow: 0 10px 30px rgba(6, 43, 92, 0.07);
+    border: 1px solid #f1f4f8;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: pointer;
   }
 
-  .model-img-wrapper {
+  .talent-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(255, 75, 0, 0.16), 0 8px 20px rgba(6, 43, 92, 0.08);
+    border-color: rgba(255, 75, 0, 0.3);
+  }
+
+  .card-image-box {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 380px;
+    overflow: hidden;
+    background: #062B5C;
   }
 
-  .model-img-wrapper img {
+  .card-image-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.6s ease;
+    object-position: center top;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .model-card:hover .model-img-wrapper img {
-    transform: scale(0.94);
-    filter: brightness(0.85);
+  .talent-card:hover .card-image-box img {
+    transform: scale(1.07);
   }
 
-  .model-overlay {
+  .card-status-pill {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(6, 43, 92, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px #10B981;
+  }
+
+  .card-category-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 75, 0, 0.9);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(255, 75, 0, 0.3);
+  }
+
+  .card-hover-overlay {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: 24px 18px;
-    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 60%);
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.2) 0%, rgba(6, 43, 92, 0.85) 100%);
     opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: opacity 0.35s ease;
+    z-index: 3;
+    padding: 20px;
   }
 
-  .model-card:hover .model-overlay {
+  .talent-card:hover .card-hover-overlay {
     opacity: 1;
   }
 
-  .model-info {
-    transform: translateY(10px);
-    transition: transform 0.35s ease;
+  .btn-view-profile {
+    background: #ffffff;
+    color: var(--color-navy);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
   }
 
-  .model-card:hover .model-info {
+  .talent-card:hover .btn-view-profile {
     transform: translateY(0);
   }
 
-  .model-name {
-    font-size: 1.6rem;
+  .btn-view-profile:hover {
+    background: var(--color-orange);
     color: #ffffff;
+  }
+
+  /* Card Details */
+  .card-details-box {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-meta {
+    margin-bottom: 6px;
+  }
+
+  .city-location {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .city-location i {
+    color: var(--color-orange);
+  }
+
+  .talent-title {
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 2px;
+    color: var(--color-navy);
+    margin-bottom: 4px;
+    line-height: 1.3;
   }
 
-  .model-city {
-    font-family: var(--font-heading);
+  .talent-role {
     font-size: 0.85rem;
-    color: var(--color-accent);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 600;
+    color: var(--color-orange);
+    margin-bottom: 12px;
   }
 
-  /* Lightbox Modal */
-  .model-lightbox {
+  .talent-short-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+
+  .card-footer-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .talent-specs {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .direct-quote-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #10B981;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: var(--transition-smooth);
+  }
+
+  .direct-quote-link:hover {
+    color: var(--color-orange);
+    transform: scale(1.05);
+  }
+
+  /* Bottom Note */
+  .talent-footer-note {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--color-orange);
+    padding: 16px 24px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    color: #334155;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  }
+
+  .talent-footer-note i {
+    color: var(--color-orange);
+    margin-right: 6px;
+  }
+
+  /* ========================================================
+     MODAL LIGHTBOX
+     ======================================================== */
+  .talent-modal {
     position: fixed;
     inset: 0;
-    z-index: 2000;
+    z-index: 999999;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    padding: 20px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  .model-lightbox.open {
+  .talent-modal.is-open {
     opacity: 1;
-    visibility: visible;
+    pointer-events: auto;
   }
 
-  .lightbox-backdrop {
+  .modal-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.88);
+    background: rgba(6, 43, 92, 0.85);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  .lightbox-modal {
+  .modal-window {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     background: #ffffff;
-    border-radius: 8px;
+    width: 92%;
     max-width: 850px;
-    width: 100%;
-    max-height: 90vh;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    transform: scale(0.92);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .lightbox-close {
+  .talent-modal.is-open .modal-window {
+    transform: scale(1);
+  }
+
+  .modal-close-btn {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 20px;
-    font-size: 2.2rem;
-    color: #333333;
-    z-index: 20;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 1.8rem;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: var(--transition-smooth);
   }
 
-  .lightbox-body {
+  .modal-close-btn:hover {
+    background: var(--color-orange);
+    transform: rotate(90deg);
+  }
+
+  .modal-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-height: 90vh;
+    grid-template-columns: 1fr 1.2fr;
   }
 
-  .lightbox-body img {
+  .modal-image-col {
+    background: #062B5C;
+    height: 520px;
+  }
+
+  .modal-image-col img {
     width: 100%;
     height: 100%;
-    max-height: 90vh;
     object-fit: cover;
+    object-position: center top;
   }
 
-  .lightbox-caption {
-    padding: 50px 40px;
+  .modal-info-col {
+    padding: 45px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .lightbox-caption h3 {
-    font-size: 2.5rem;
-    color: #161616;
-    margin-bottom: 8px;
-  }
-
-  .lightbox-caption span {
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    color: var(--color-accent-hover);
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+  .modal-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(255, 75, 0, 0.1);
+    color: var(--color-orange);
+    font-weight: 700;
+    font-size: 0.78rem;
     letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
   }
 
-  .mt-3 {
-    margin-top: 18px;
+  .modal-title {
+    font-size: 2rem;
+    color: var(--color-navy);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
   }
 
+  .modal-role {
+    font-size: 1.05rem;
+    color: var(--color-orange);
+    font-weight: 600;
+  }
+
+  .modal-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 18px 0;
+  }
+
+  .modal-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 0.92rem;
+    color: #475569;
+  }
+
+  .modal-meta-row i {
+    color: var(--color-orange);
+    margin-right: 6px;
+  }
+
+  .modal-desc {
+    font-size: 0.96rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .modal-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Responsive Breakpoints */
   @media (max-width: 1200px) {
-    .models-grid {
-      grid-template-columns: repeat(4, 1fr);
+    .talent-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  @media (max-width: 768px) {
-    .models-grid {
+  @media (max-width: 860px) {
+    .talent-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
-    .lightbox-body {
+
+    .modal-content-grid {
       grid-template-columns: 1fr;
     }
-    .lightbox-body img {
-      max-height: 45vh;
+
+    .modal-image-col {
+      height: 280px;
     }
-    .lightbox-caption {
-      padding: 24px;
+
+    .modal-info-col {
+      padding: 25px 20px;
+    }
+
+    .talent-filter-bar {
+      border-radius: 16px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .talent-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .equipo-golden-section {
+      padding: 70px 0;
+    }
+
+    .talent-filter-bar {
+      width: 100%;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-chip {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .header-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-golden-primary,
+    .btn-golden-whatsapp {
+      width: 100%;
     }
   }
 </style>

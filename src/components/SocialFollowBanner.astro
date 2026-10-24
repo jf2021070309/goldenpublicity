@@ -1,26 +1,42 @@
 ---
-// SocialFollowBanner.astro
+// SocialFollowBanner.astro (Redes Sociales Golden Publicity)
 ---
 
 <section class="social-follow-section">
   <div class="container">
-    <div class="social-banner-box">
+    <div class="social-banner-box glass-card reveal-left">
+      <span class="section-kicker">Comunidad & Actualizaciones</span>
       <h2 class="social-banner-title">
-        Hey, síguenos<span class="dot">.</span>
+        Conéctate con Golden Publicity<span class="dot">.</span>
       </h2>
       <p class="social-banner-sub">
-        Sigue de cerca nuestros <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener">eventos</a>, <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener">proyectos</a> y transmisiones en vivo de nuestras modelos.
+        Sigue de cerca el detrás de cámaras de nuestras <a href="https://www.instagram.com/goldenpublicity23" target="_blank" rel="noopener">activaciones en vivo</a>, coberturas en televisión, desfiles de moda y eventos corporativos en todo México.
       </p>
 
       <div class="social-buttons-row">
-        <a href="https://www.facebook.com/AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
-          <i class="fa fa-facebook"></i> Facebook
+        <a 
+          href="https://www.instagram.com/goldenpublicity23" 
+          target="_blank" 
+          rel="noopener" 
+          class="btn-social-gold instagram"
+        >
+          <i class="fa fa-instagram"></i> @goldenpublicity23
         </a>
-        <a href="https://www.instagram.com/AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
-          <i class="fa fa-instagram"></i> Instagram
+        <a 
+          href="https://www.facebook.com/profile.php?id=100090488202295&mibextid=ZbWKwL" 
+          target="_blank" 
+          rel="noopener" 
+          class="btn-social-gold facebook"
+        >
+          <i class="fa fa-facebook"></i> Facebook Oficial
         </a>
-        <a href="https://www.tiktok.com/@AgenciaSurf" target="_blank" rel="noopener" class="btn-social-gold">
-          <i class="fa fa-music"></i> TikTok
+        <a 
+          href="https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20quiero%20conocer%20m%C3%A1s%20de%20sus%20servicios" 
+          target="_blank" 
+          rel="noopener" 
+          class="btn-social-gold whatsapp"
+        >
+          <i class="fa fa-whatsapp"></i> 81 1683 7738
         </a>
       </div>
     </div>
@@ -30,8 +46,8 @@
 <style>
   .social-follow-section {
     position: relative;
-    padding: 120px 0;
-    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/surf-parallax-redessociales-1.jpg');
+    padding: 130px 0;
+    background-image: url('https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fashion-show-activacion.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -43,47 +59,50 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.45);
+    background: linear-gradient(90deg, rgba(6, 43, 92, 0.88) 0%, rgba(6, 43, 92, 0.65) 60%, rgba(255, 75, 0, 0.3) 100%);
   }
 
   .social-banner-box {
     position: relative;
     z-index: 2;
-    max-width: 580px;
+    max-width: 620px;
+    padding: 45px 40px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   }
 
+
+
   .social-banner-title {
-    font-size: 3rem;
-    color: #1a1a1a;
+    font-size: 2.6rem;
+    color: var(--color-navy);
     font-weight: 700;
+    line-height: 1.2;
     margin-bottom: 16px;
   }
 
   .social-banner-title .dot {
-    color: var(--color-accent);
+    color: var(--color-orange);
   }
 
   .social-banner-sub {
-    font-size: 1.25rem;
-    color: #222222;
+    font-size: 1.05rem;
+    color: #475569;
     line-height: 1.6;
-    margin-bottom: 32px;
+    margin-bottom: 30px;
   }
 
   .social-banner-sub a {
-    color: #111111;
+    color: var(--color-orange);
     text-decoration: underline;
     font-weight: 600;
-  }
-
-  .social-banner-sub a:hover {
-    color: var(--color-orange);
   }
 
   .social-buttons-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
   }
 
   .btn-social-gold {
@@ -93,20 +112,30 @@
     background-color: var(--color-navy);
     color: #ffffff;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 12px 24px;
-    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 999px;
     transition: var(--transition-smooth);
+    box-shadow: 0 4px 14px rgba(6, 43, 92, 0.2);
   }
 
-  .btn-social-gold:hover {
-    background-color: var(--color-orange);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255, 75, 0, 0.35);
+  .btn-social-gold.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.35);
+  }
+
+  .btn-social-gold.facebook:hover {
+    background: #1877F2;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(24, 119, 242, 0.35);
+  }
+
+  .btn-social-gold.whatsapp:hover {
+    background: #25D366;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
   }
 
   @media (max-width: 768px) {
@@ -114,11 +143,15 @@
       padding: 80px 0;
       background-attachment: scroll;
     }
-    .social-banner-title {
-      font-size: 2.3rem;
+    .social-banner-box {
+      padding: 30px 20px;
     }
-    .social-banner-sub {
-      font-size: 1.1rem;
+    .social-banner-title {
+      font-size: 2rem;
+    }
+    .btn-social-gold {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

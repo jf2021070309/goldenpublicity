@@ -1,160 +1,277 @@
 ---
-// PillarsAndQuote.astro
+// PillarsAndQuote.astro (Metodología y Filosofía Golden Publicity)
 const pillars = [
   {
-    icon: "fa-rocket",
+    step: "01",
     title: "Top Of Mind",
-    desc: "Que tu marca sea recordada como primera opción en la memoria del consumidor."
+    kicker: "Recordación de Marca",
+    desc: "Posicionamos tu marca como la primera opción en la memoria y decisión inmediata del consumidor a través de estímulos visuales coordinados."
   },
   {
-    icon: "lnr-smile",
-    isLinear: true,
-    title: "Sensaciones",
-    desc: "Entre más sentidos se involucren en una actividad, más fácil será recordada."
+    step: "02",
+    title: "Experiencia Sensorial",
+    kicker: "Conexión en Vivo",
+    desc: "Involucramos los sentidos del público mediante dinámicas directas, degustación, sampling y demostración interactiva de producto."
   },
   {
-    icon: "lnr-heart-pulse",
-    isLinear: true,
-    title: "Emociones",
-    desc: "Las emociones son el factor determinante en la toma de decisiones, siempre buscamos generarlas."
+    step: "03",
+    title: "Conexión Emocional",
+    kicker: "Afinidad y Lealtad",
+    desc: "Las emociones son el detonador decisivo en la compra. Creamos momentos memorables y de confianza que humanizan y engrandecen a tu empresa."
   },
   {
-    icon: "ion-magnet",
-    isIon: true,
-    title: "Engagement",
-    desc: "Traducimos los valores y mensajes de la marca para crear una relación sólida con tus consumidores."
+    step: "04",
+    title: "Engagement & Conversión",
+    kicker: "Retorno de Inversión",
+    desc: "Traducimos la presencia de marca en prospectos calificados, aceleración de venta directa y lealtad a largo plazo en cada punto de contacto."
   }
 ];
 ---
 
 <section class="pillars-section">
-  <div class="container text-center">
-    <span class="section-subtitle">LA OLA PERFECTA ESTÁ POR LLEGAR</span>
-    <h2 class="section-title">
-      Nos encanta lo que hacemos<span class="dot">.</span>
-    </h2>
+  <div class="container">
+    <div class="pillars-header text-center reveal-scroll">
+      <span class="section-kicker">Metodología & Filosofía</span>
+      <h2 class="section-title">
+        Estrategias que generan resultados<span class="dot">.</span>
+      </h2>
+      <p class="section-lead">
+        En <strong>Golden Publicity</strong> fusionamos planeación publicitaria con ejecución impecable en campo. Cada acción está calculada para cautivar a tu público objetivo.
+      </p>
+    </div>
 
-    <!-- 4 Pillars Grid -->
-    <div class="pillars-grid">
+    <!-- Editorial 4-Step Methodology Showcase -->
+    <div class="methodology-flow reveal-stagger">
       {pillars.map(p => (
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            {p.isLinear ? (
-              <span class={`lnr ${p.icon} icon-element`}></span>
-            ) : p.isIon ? (
-              <i class={`icon ion-magnet icon-element`}></i>
-            ) : (
-              <i class={`fa ${p.icon} icon-element`}></i>
-            )}
+        <div class="methodology-column">
+          <div class="step-indicator-bar">
+            <span class="step-num-badge">{p.step}</span>
+            <div class="step-line"></div>
           </div>
-          <h3 class="pillar-title">{p.title}</h3>
-          <p class="pillar-desc">{p.desc}</p>
+          <div class="methodology-card">
+            <span class="card-kicker">{p.kicker}</span>
+            <h3 class="card-headline">{p.title}</h3>
+            <p class="card-text">{p.desc}</p>
+          </div>
         </div>
       ))}
     </div>
 
-    <!-- Golden Highlight Quote -->
-    <div class="golden-quote-box">
-      <p class="golden-quote-text">
-        En <strong>Golden Publicity</strong> creemos en la experiencia de marca, nos encantan las estrategias de marketing y <em><strong>sabemos que lo diferente siempre será recordado.</strong></em>
-      </p>
+    <!-- High-Impact Quote Block -->
+    <div class="golden-manifesto-box reveal-scale">
+      <div class="manifesto-left-accent"></div>
+      <div class="manifesto-inner">
+        <blockquote class="manifesto-quote">
+          "En <strong>Golden Publicity</strong> creemos firmemente en el poder del marketing en vivo y la experiencia directa. Nos apasiona la excelencia operativa y <em><strong>sabemos que lo diferente siempre será lo más recordado</strong></em>."
+        </blockquote>
+        <div class="manifesto-meta">
+          <span class="manifesto-corp">Dirección General & Estrategia</span>
+          <span class="manifesto-hq">San Pedro Garza García & Monterrey, N.L.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .pillars-section {
-    padding: 100px 0 90px;
-    background-color: #ffffff;
-    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/bg-h1-4.jpg');
-    background-position: top center;
-    background-repeat: no-repeat;
+    padding: 110px 0 100px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .text-center {
-    text-align: center;
+  .pillars-header {
+    max-width: 860px;
+    margin: 0 auto 65px;
   }
 
-  .pillars-grid {
+  /* Methodology Horizontal Flow */
+  .methodology-flow {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    margin-top: 60px;
-    margin-bottom: 70px;
-    text-align: left;
+    gap: 28px;
+    margin-bottom: 75px;
+    position: relative;
   }
 
-  .pillar-card {
-    background: #ffffff;
-    padding: 30px 24px;
-    border-radius: 6px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-    border-bottom: 3px solid transparent;
-    transition: var(--transition-smooth);
+  .methodology-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
-  .pillar-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-orange);
-    box-shadow: 0 12px 30px rgba(6, 43, 92, 0.08);
+  .step-indicator-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
   }
 
-  .pillar-icon-box {
-    margin-bottom: 18px;
-  }
-
-  .icon-element {
-    font-size: 2.5rem;
+  .step-num-badge {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--color-orange);
-    transition: color 0.25s ease;
+    background: rgba(255, 75, 0, 0.08);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255, 75, 0, 0.25);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
   }
 
-  .pillar-card:hover .icon-element {
+  .methodology-column:hover .step-num-badge {
+    background: var(--color-orange);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(255, 75, 0, 0.35);
+    transform: scale(1.08);
+  }
+
+  .step-line {
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 75, 0, 0.3) 0%, rgba(6, 43, 92, 0.1) 100%);
+  }
+
+  .methodology-card {
+    background: #f8fafc;
+    border: 1px solid #eef2f6;
+    border-radius: 18px;
+    padding: 32px 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .methodology-card:hover {
+    background: #ffffff;
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(6, 43, 92, 0.08);
+    border-color: rgba(255, 75, 0, 0.3);
+  }
+
+  .card-kicker {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--color-orange);
+    margin-bottom: 8px;
+  }
+
+  .card-headline {
+    font-size: 1.35rem;
+    font-weight: 700;
     color: var(--color-navy);
+    margin-bottom: 14px;
+    line-height: 1.25;
   }
 
-  .pillar-title {
+  .card-text {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Manifesto Quote Box */
+  .golden-manifesto-box {
+    display: flex;
+    background: linear-gradient(135deg, #f8fafc 0%, #fff7ed 100%);
+    border: 1px solid rgba(255, 75, 0, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(6, 43, 92, 0.06);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .manifesto-left-accent {
+    width: 8px;
+    background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-navy) 100%);
+    flex-shrink: 0;
+  }
+
+  .manifesto-inner {
+    padding: 45px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .manifesto-quote {
+    font-family: var(--font-heading);
     font-size: 1.35rem;
     color: var(--color-navy);
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-
-  .pillar-desc {
-    font-size: 0.95rem;
-    color: #555555;
     line-height: 1.6;
+    font-weight: 500;
+    margin: 0;
   }
 
-  /* Golden Highlight Box */
-  .golden-quote-box {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 24px 30px;
-    border-left: 4px solid var(--color-orange);
-    background: rgba(255, 75, 0, 0.06);
-    border-radius: 0 8px 8px 0;
-  }
-
-  .golden-quote-text {
-    font-size: 1.25rem;
+  .manifesto-quote strong {
     color: var(--color-navy);
-    line-height: 1.6;
+    font-weight: 700;
   }
 
-  .golden-quote-text strong {
+  .manifesto-quote em strong {
     color: var(--color-orange);
+    font-style: italic;
   }
 
-  @media (max-width: 992px) {
-    .pillars-grid {
+  .manifesto-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .manifesto-corp {
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-navy);
+  }
+
+  .manifesto-hq {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .methodology-flow {
       grid-template-columns: repeat(2, 1fr);
+      row-gap: 35px;
+    }
+
+    .manifesto-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
     }
   }
 
-  @media (max-width: 600px) {
-    .pillars-grid {
+  @media (max-width: 650px) {
+    .methodology-flow {
       grid-template-columns: 1fr;
+    }
+
+    .manifesto-inner {
+      padding: 30px 22px;
+    }
+
+    .manifesto-quote {
+      font-size: 1.15rem;
     }
   }
 </style>

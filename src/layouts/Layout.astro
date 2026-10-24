@@ -8,9 +8,9 @@ interface Props {
 }
 
 const {
-  title = "Agencia de Edecanes y Modelos | Golden Publicity",
-  description = "➤ Tel. 221 252 9626 | Agencia de edecanes y modelos | Expos, eventos, activaciones de marca | ¿Eres una marca cool? Nosotros también.",
-  image = "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2016/09/montse-portfolio-5a.jpg"
+  title = "Golden Publicity | Líder en Medios Publicitarios, BTL y Modelos",
+  description = "➤ Tel. 81 1683 7738 | Golden Publicity | Agencia líder en activaciones de marca BTL, edecanes AA/AAA, modelos, medios impresos y eventos en Monterrey y todo México.",
+  image = "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-12-at-3.21.22-PM.jpeg"
 } = Astro.props;
 ---
 
@@ -29,7 +29,7 @@ const {
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content="https://goldenpublicity.zelo.com.mx/" />
-  <meta property="og:site_name" content="Golden Publicity Edecanes y Modelos en Puebla y CDMX" />
+  <meta property="og:site_name" content="Golden Publicity | Medios Publicitarios y BTL" />
   <meta property="og:image" content={image} />
 
   <!-- Twitter -->
@@ -39,8 +39,8 @@ const {
   <meta name="twitter:image" content={image} />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/cropped-favicon.png?fit=32%2C32&ssl=1" sizes="32x32" />
-  <link rel="apple-touch-icon" href="https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/cropped-favicon.png?fit=120%2C120&ssl=1" />
+  <link rel="icon" type="image/jpeg" href="https://www.goldenpublicity.com.mx/wp-content/uploads/2026/08/cropped-e1bc6a72-cc77-4821-a896-8e2ec0d5f9e4-1-32x32.jpg" sizes="32x32" />
+  <link rel="apple-touch-icon" href="https://www.goldenpublicity.com.mx/wp-content/uploads/2026/08/cropped-e1bc6a72-cc77-4821-a896-8e2ec0d5f9e4-1-180x180.jpg" />
 
   <!-- FontAwesome & Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -48,13 +48,99 @@ const {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
 </head>
 <body>
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+
   <div class="site-wrapper">
     <slot />
   </div>
+
+  <!-- Global Scroll Animation Script -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('scroll-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // IntersectionObserver for scroll animations
+    const initScrollAnimations = () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      };
+
+      const animateCounter = (el: HTMLElement) => {
+        const target = parseInt(el.getAttribute('data-count') || '0', 10);
+        if (!target) return;
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        let start = 0;
+        const duration = 1600;
+        const stepTime = 25;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            el.textContent = `${prefix}${target}${suffix}`;
+            clearInterval(timer);
+          } else {
+            el.textContent = `${prefix}${Math.floor(start)}${suffix}`;
+          }
+        }, stepTime);
+      };
+
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            
+            // If it has counters inside
+            const counters = entry.target.querySelectorAll<HTMLElement>('[data-count]');
+            counters.forEach(c => animateCounter(c));
+            if (entry.target.hasAttribute('data-count')) {
+              animateCounter(entry.target as HTMLElement);
+            }
+
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Target elements with animation classes
+      const animatedElements = document.querySelectorAll(
+        '.reveal-scroll, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger'
+      );
+      animatedElements.forEach(el => scrollObserver.observe(el));
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+      initScrollAnimations();
+    }
+  </script>
 </body>
 </html>
 
 <style>
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-orange), #ff7a3d, var(--color-navy));
+    width: 0%;
+    z-index: 99999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(255, 75, 0, 0.6);
+  }
+
   .site-wrapper {
     min-height: 100vh;
     display: flex;

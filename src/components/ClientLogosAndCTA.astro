@@ -1,204 +1,435 @@
 ---
-// ClientLogosAndCTA.astro
-const logosRow1 = [
-  { name: "Mercedes Benz", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-mercedes-benz.png?w=1060&ssl=1" },
-  { name: "Porsche", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-porsche.png?w=1060&ssl=1" },
-  { name: "BMW", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-bmw.png?w=1060&ssl=1" },
-  { name: "Kenworth", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-kenworth.png?w=1060&ssl=1" },
-  { name: "Coca-Cola", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-cocacola.png?w=1060&ssl=1" },
-  { name: "Bimbo", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-bimbo.png?w=1060&ssl=1" },
-  { name: "Ternium", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-ternium.png?w=1060&ssl=1" }
+// ClientLogosAndCTA.astro (Clientes Golden Publicity)
+const clientsRow1 = [
+  {
+    name: "Andamios Amarillos",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/Andamios-amarillos-logo.jpg"
+  },
+  {
+    name: "Galerías Valle Oriente",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/valle-oriente-logo.jpg"
+  },
+  {
+    name: "Clamato El Original",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/clamato-logo.jpg"
+  },
+  {
+    name: "Norteñita",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/Nortenita-logo.jpg"
+  },
+  {
+    name: "Banco BASE",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/banco-base.jpg"
+  }
 ];
 
-const logosRow2 = [
-  { name: "Innovasport", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-innovasports.png?w=1060&ssl=1" },
-  { name: "Providencia", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-providencia.png?w=1060&ssl=1" },
-  { name: "Sherwin Williams", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-sherwin-1.png?w=1060&ssl=1" },
-  { name: "Harley Davidson", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-harley-davidson.png?w=1060&ssl=1" },
-  { name: "Caterpillar", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-caterpillar.png?w=1060&ssl=1" },
-  { name: "Mpower", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-mpower.png?w=1060&ssl=1" },
-  { name: "ProOne", src: "https://i0.wp.com/agenciasurf.mx/wp-content/uploads/2022/01/logo-proone.png?w=1060&ssl=1" }
+const clientsRow2 = [
+  {
+    name: "Elite Tuxedo",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/elite-tuxedo-logo.jpg"
+  },
+  {
+    name: "LubCenter Promechanics",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/LubCenter-logo.jpg"
+  },
+  {
+    name: "MULTIMEDIOS Televisión",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/multimedios-logo.jpg"
+  },
+  {
+    name: "Atún Dolores",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/atun-dolores-logo.jpg"
+  },
+  {
+    name: "Milenium Gasolineras",
+    src: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/milenium-gasolineras-logo.jpg"
+  }
 ];
+
+const allClients = [...clientsRow1, ...clientsRow2];
 ---
 
 <section class="clients-cta-section" id="clientes">
-  <!-- Brand Carousel Row 1 -->
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
-      {[...logosRow1, ...logosRow1].map((logo, i) => (
-        <div class="logo-item" key={i}>
-          <img src={logo.src} alt={logo.name} loading="lazy" />
+  <!-- Section Intro -->
+  <div class="container text-center reveal-scroll">
+    <span class="section-kicker">Trayectoria & Respaldo Comercial</span>
+    <h2 class="section-title">
+      Clientes<span class="dot">.</span>
+    </h2>
+    <p class="section-lead">
+      Grandes marcas, corporativos e instituciones confían de forma continua en el talento, la puntualidad y el impacto visual de <strong>Golden Publicity</strong>.
+    </p>
+  </div>
+
+  <!-- Big Client Cards Grid -->
+  <div class="container reveal-stagger">
+    <div class="clients-showcase-grid">
+      {allClients.map((client, idx) => (
+        <div class="client-brand-card">
+          <div class="logo-wrapper">
+            <img src={client.src} alt={client.name} loading="lazy" />
+          </div>
+          <span class="client-hover-name">{client.name}</span>
         </div>
       ))}
     </div>
   </div>
 
-  <!-- Gold Call To Action Banner -->
-  <div class="cta-gold-banner">
-    <div class="container">
-      <div class="cta-flex-row">
-        <div class="cta-text-col">
-          <h2 class="cta-title">
-            Cuéntanos tu proyecto<span class="cta-dot">.</span>
-          </h2>
-          <p class="cta-sub">
-            Cotizaciones y colaboraciones, juntos podemos hacer algo genial!!!
-          </p>
-        </div>
-        <div class="cta-btn-col">
-          <a href="#contacto" class="btn-surf-purple">
-            Solicitar Informes
-          </a>
+  <!-- Giant Infinite Marquee Section (MUCH BIGGER, inspired by image 5) -->
+  <div class="giant-marquee-section reveal-scale">
+    <!-- Marquee Row 1 (Moving Left) -->
+    <div class="marquee-giant-strip">
+      <div class="marquee-giant-track track-left">
+        {[...allClients, ...allClients, ...allClients].map(client => (
+          <div class="giant-logo-item">
+            <div class="logo-inner-box">
+              <img src={client.src} alt={client.name} loading="lazy" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Central High-Impact Orange CTA Banner (Like Image 5) -->
+    <div class="golden-cta-banner">
+      <div class="container">
+        <div class="cta-banner-content">
+          <div class="cta-left-text">
+            <h2 class="cta-bold-title">
+              Cuéntanos tu proyecto<span class="cta-dot">.</span>
+            </h2>
+            <p class="cta-sub-lead">
+              Cotizaciones, lanzamientos y colaboraciones: ¡juntos creamos activaciones memorables de alto impacto!
+            </p>
+          </div>
+          <div class="cta-right-btn">
+            <a href="#contacto" class="btn-banner-navy">
+              <i class="fa fa-envelope-o"></i> Solicitar Informes
+            </a>
+            <a 
+              href="https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20quisiera%20cotizar%20un%20proyecto" 
+              target="_blank" 
+              rel="noopener" 
+              class="btn-banner-wa"
+            >
+              <i class="fa fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Brand Carousel Row 2 -->
-  <div class="marquee-wrapper mt-30">
-    <div class="marquee-track reverse">
-      {[...logosRow2, ...logosRow2].map((logo, i) => (
-        <div class="logo-item" key={i}>
-          <img src={logo.src} alt={logo.name} loading="lazy" />
-        </div>
-      ))}
+    <!-- Marquee Row 2 (Moving Right) -->
+    <div class="marquee-giant-strip strip-bottom">
+      <div class="marquee-giant-track track-right">
+        {[...allClients, ...allClients, ...allClients].map(client => (
+          <div class="giant-logo-item">
+            <div class="logo-inner-box">
+              <img src={client.src} alt={client.name} loading="lazy" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .clients-cta-section {
-    padding: 35px 0 35px;
-    background-color: var(--color-orange);
-    background-image: url('https://agenciasurf.mx/wp-content/uploads/2022/01/surf-pattern.png?id=9702');
-    background-repeat: repeat;
-    background-position: 0 0;
-    overflow: hidden;
-  }
-
-  .marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
+    padding: 110px 0 0;
+    background: #ffffff;
     position: relative;
-    padding: 15px 0;
+    overflow: hidden;
   }
 
-  .marquee-track {
+  /* 5x2 Big Cards Grid */
+  .clients-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    margin: 45px 0 80px;
+  }
+
+  .client-brand-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 18px;
+    padding: 30px 24px;
+    height: 155px;
     display: flex;
-    gap: 60px;
-    width: max-content;
-    animation: scrollLogos 30s linear infinite;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(6, 43, 92, 0.04);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
   }
 
-  .marquee-track.reverse {
-    animation: scrollLogosReverse 30s linear infinite;
+  .client-brand-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(255, 75, 0, 0.35);
+    box-shadow: 0 20px 45px rgba(255, 75, 0, 0.14), 0 6px 15px rgba(6, 43, 92, 0.06);
   }
 
-  .marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
-  .logo-item {
+  .logo-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 180px;
-    height: 70px;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
-    transition: all 0.3s ease;
   }
 
-  .logo-item:hover {
-    filter: brightness(0) invert(1);
-    opacity: 1;
+  .logo-wrapper img {
+    max-width: 90%;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+  }
+
+  .client-brand-card:hover .logo-wrapper img {
     transform: scale(1.08);
   }
 
-  .logo-item img {
-    max-height: 55px;
-    max-width: 155px;
+  .client-hover-name {
+    position: absolute;
+    bottom: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-orange);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .client-brand-card:hover .client-hover-name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========================================================
+     GIANT MARQUEE & HIGH-IMPACT ORANGE BANNER
+     ======================================================== */
+  .giant-marquee-section {
+    width: 100%;
+    background: var(--color-orange);
+    position: relative;
+    padding: 30px 0 35px;
+    overflow: hidden;
+  }
+
+  .marquee-giant-strip {
+    width: 100%;
+    overflow: hidden;
+    padding: 16px 0;
+  }
+
+  .strip-bottom {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  .marquee-giant-track {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: max-content;
+  }
+
+  .track-left {
+    animation: scrollGiantLeft 32s linear infinite;
+  }
+
+  .track-right {
+    animation: scrollGiantRight 32s linear infinite;
+  }
+
+  .marquee-giant-strip:hover .marquee-giant-track {
+    animation-play-state: paused;
+  }
+
+  .giant-logo-item {
+    flex-shrink: 0;
+    width: 220px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-inner-box {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .giant-logo-item:hover .logo-inner-box {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  }
+
+  .logo-inner-box img {
+    max-width: 100%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
     object-fit: contain;
   }
 
-  @keyframes scrollLogos {
+  @keyframes scrollGiantLeft {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-33.333%); }
   }
 
-  @keyframes scrollLogosReverse {
-    0% { transform: translateX(-50%); }
+  @keyframes scrollGiantRight {
+    0% { transform: translateX(-33.333%); }
     100% { transform: translateX(0); }
   }
 
-  /* CTA Gold Banner */
-  .cta-gold-banner {
-    background-color: var(--color-orange);
-    padding: 35px 0 40px;
-    margin: 15px 0;
+  /* Central High-Impact CTA Banner */
+  .golden-cta-banner {
+    padding: 45px 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  .cta-flex-row {
+  .cta-banner-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 40px;
   }
 
-  .cta-title {
-    font-size: 2.5rem;
+  .cta-bold-title {
+    font-size: 2.8rem;
+    font-weight: 800;
     color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 6px;
-    line-height: 1.1;
+    line-height: 1.15;
+    margin-bottom: 8px;
   }
 
   .cta-dot {
     color: var(--color-navy);
-    font-size: 1.3em;
   }
 
-  .cta-sub {
+  .cta-sub-lead {
     font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.92);
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    max-width: 650px;
+    line-height: 1.5;
   }
 
-  .btn-surf-purple {
-    display: inline-block;
-    background-color: var(--color-navy);
+  .cta-right-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .btn-banner-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-navy);
     color: #ffffff;
     font-family: var(--font-heading);
-    font-weight: 600;
     font-size: 0.95rem;
-    padding: 13px 32px;
-    border-radius: 4px;
-    text-transform: capitalize;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 16px 36px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(6, 43, 92, 0.4);
+    transition: var(--transition-smooth);
   }
 
-  .btn-surf-purple:hover {
-    background-color: #041c3d;
+  .btn-banner-navy:hover {
+    background: #031836;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(6, 43, 92, 0.6);
     color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(6, 43, 92, 0.4);
   }
 
-  .mt-30 {
-    margin-top: 15px;
+  .btn-banner-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #25D366;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 16px 28px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: var(--transition-smooth);
   }
 
-  @media (max-width: 860px) {
-    .cta-flex-row {
+  .btn-banner-wa:hover {
+    background: #25D366;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .clients-showcase-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cta-banner-content {
       flex-direction: column;
       text-align: center;
     }
-    .cta-title {
+
+    .cta-sub-lead {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .clients-showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .client-brand-card {
+      height: 130px;
+      padding: 18px 14px;
+    }
+
+    .cta-bold-title {
       font-size: 2rem;
     }
-    .cta-sub {
-      font-size: 1.05rem;
+
+    .cta-right-btn {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-banner-navy,
+    .btn-banner-wa {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .giant-logo-item {
+      width: 170px;
+      height: 85px;
     }
   }
 </style>

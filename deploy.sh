@@ -10,7 +10,8 @@ cd /var/www/goldenpublicity
 
 # Obtener últimos cambios
 echo "📥 Descargando últimos cambios de Git..."
-git pull origin main
+git fetch origin main
+git reset --hard origin/main
 
 # Instalar dependencias
 echo "📦 Instalando dependencias..."

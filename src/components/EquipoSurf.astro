@@ -2,92 +2,136 @@
 // EquipoSurf.astro (Equipo Golden Publicity)
 const models = [
   {
-    id: "edecanes-aaa",
-    name: "Equipo Edecanes AAA",
-    role: "Edecanes AAA & Imagen",
-    city: "Monterrey / Cobertura Nacional",
+    id: "edecanes-corporativo-1",
+    name: "Equipo Edecanes AAA Corporativas",
+    role: "Protocolo & Congresos Médicos",
+    city: "Monterrey / San Pedro / CDMX",
     category: "edecanes",
     tag: "Edecanes AAA",
-    stats: "Estatura: 1.72m - 1.78m | Bilingüe",
+    stats: "Estatura: 1.74m - 1.78m | Bilingüe",
     desc: "Presencia impecable y protocolo en congresos médicos, expos industriales en Cintermex y eventos corporativos de alto nivel.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/481081343_591701567189445_26101683362706153_n.jpg"
+    image: "/images/modelos/edecanes-uniforme-corporativo-1.jpg"
   },
   {
-    id: "modelos-runway",
-    name: "Modelos Runway & Moda",
-    role: "Pasarela & Editorial",
+    id: "modelo-editorial",
+    name: "Modelos Runway & Editorial",
+    role: "Pasarela, Moda & Lookbook",
     city: "San Pedro Garza García / CDMX",
     category: "modelos",
     tag: "Pasarela & Moda",
-    stats: "Pasarela de Lujo | Sesiones Lookbook",
+    stats: "Alta Costura | Campañas Publicitarias",
     desc: "Talento perfilado para lanzamientos de temporada, comerciales de televisión, campañas publicitarias impresas y digitales.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/09/bac6122e-bde0-4329-9fc6-1d7fb6a53530.jpg"
+    image: "/images/modelos/modelo-retrato-profesional.jpg"
   },
   {
-    id: "staff-btl",
-    name: "Staff BTL & Animación",
-    role: "Activaciones Masivas",
-    city: "Área Metropolitana de Monterrey",
-    category: "btl",
-    tag: "Activaciones BTL",
-    stats: "Alto Carisma | Proactividad en Campo",
-    desc: "Generación de interacción con el público consumidor, volanteo dinámico, entrega de souvenirs y dinámicas con premios.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/09/f72f9e3d-9aa4-40a2-a181-05828cc506bc.jpg"
-  },
-  {
-    id: "hostess-vip",
-    name: "Hostess de Protocolo VIP",
-    role: "Recepción Corporativa",
-    city: "San Pedro / Monterrey",
+    id: "edecan-protocolo",
+    name: "Hostess de Bienvenida & Protocolo",
+    role: "Recepción Corporativa VIP",
+    city: "Monterrey / Guadalajara",
     category: "hostess",
-    tag: "Hostess Ejecutiva",
+    tag: "Hostess VIP",
     stats: "Atención Protocolaria | Excelente Dicción",
     desc: "Control de acceso, bienvenida a directivos, acreditación en congresos y entrega de kits de bienvenida en eventos VIP.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/3.jpg"
+    image: "/images/modelos/edecan-bienvenida-protocolo.jpg"
   },
   {
-    id: "edecanes-ferias",
-    name: "Edecanes Comerciales AA",
-    role: "Expos & Stands",
-    city: "Monterrey / Guadalajara / Puebla",
+    id: "pareja-gala",
+    name: "Talento Gala & Presentaciones",
+    role: "Pareja Imagen de Marca",
+    city: "Monterrey / San Pedro",
+    category: "modelos",
+    tag: "Gala & Eventos",
+    stats: "Presencia Distinguida | Porte de Gala",
+    desc: "Representación integral de marca en premiaciones corporativas, galas de fin de año y desfiles de alta gama.",
+    image: "/images/modelos/pareja-modelos-formal.jpg"
+  },
+  {
+    id: "hostess-vip-negro",
+    name: "Hostess Ejecutiva & Protocolo",
+    role: "Acreditaciones & Asambleas",
+    city: "Monterrey / CDMX",
+    category: "hostess",
+    tag: "Hostess Ejecutiva",
+    stats: "Perfil Corporativo | Trato Amable",
+    desc: "Asistencia en salas de prensa, congresos de negocios, presentación de ponentes y atención a invitados especiales.",
+    image: "/images/modelos/modelos-duo-elegante-negro.jpg"
+  },
+  {
+    id: "edecanes-patrocinador",
+    name: "Edecanes BTL & Patrocinio",
+    role: "Activaciones Deportivas & Automotriz",
+    city: "Puebla / Querétaro / Monterrey",
+    category: "edecanes",
+    tag: "BTL & Patrocinio",
+    stats: "Dinamismo | Excelente Interacción",
+    desc: "Presencia de marca en carreras, torneos de pádel, eventos automotrices y activaciones de patrocinadores oficiales.",
+    image: "/images/modelos/edecanes-uniforme-amarillo-mro.jpg"
+  },
+  {
+    id: "duo-gala",
+    name: "Dúo Edecanes de Gala",
+    role: "Inauguraciones & Cócteles",
+    city: "San Pedro Garza García / Cancún",
+    category: "edecanes",
+    tag: "Edecanes AAA",
+    stats: "Elegancia | Alta Hospitalidad",
+    desc: "Corte de listón inaugural, servicio de cóctel de bienvenida y atención personalizada en eventos premium.",
+    image: "/images/modelos/modelo-duo-gala.jpg"
+  },
+  {
+    id: "equipo-corporativo",
+    name: "Equipo de Edecanes para Expos",
+    role: "Stands Comerciales & Cintermex",
+    city: "Monterrey / Guadalajara / CDMX",
     category: "edecanes",
     tag: "Expos & Ferias",
-    stats: "Ventas & Muestreo | Imagen Dinámica",
-    desc: "Atracción de prospectos a tu stand, explicación de fichas técnicas de producto y toma de datos comerciales de clientes.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2026/04/2.jpg"
+    stats: "Atención al Cliente | Muestreo Masivo",
+    desc: "Coordinación de equipos completos para stands industriales, toma de datos comerciales y volanteo dinámico.",
+    image: "/images/modelos/equipo-edecanes-corporativas.jpg"
   },
   {
-    id: "fashion-show",
-    name: "Pasarelas de Temporada",
-    role: "Fashion Shows & Eventos",
-    city: "Plazas Comerciales & Auditorios",
+    id: "modelo-masculino",
+    name: "Modelo Masculino & Campañas",
+    role: "Comerciales & Fotografía",
+    city: "CDMX / Monterrey",
     category: "modelos",
-    tag: "Fashion Shows",
-    stats: "Experiencia en Pasarela | Coreografía",
-    desc: "Desfiles de moda para centros comerciales, presentaciones de colecciones departamentales y aperturas de boutiques.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fashion-show-activacion.jpg"
+    tag: "Modelo Masculino",
+    stats: "Estatura: 1.84m | Versatilidad",
+    desc: "Imagen masculina para comerciales, sesiones de moda, lanzamientos de vehículos y producciones de video.",
+    image: "/images/modelos/modelo-masculino-fashion.jpg"
   },
   {
-    id: "promocion-retail",
-    name: "Promotoras Punto de Venta",
-    role: "Degustación & Retail",
-    city: "Supermercados & Centros Comerciales",
+    id: "talento-fitness",
+    name: "Talento Deportivo & Fitness",
+    role: "Maratones, Torneos & Wellness",
+    city: "Monterrey / San Pedro",
     category: "btl",
-    tag: "Retail & Autoservicio",
-    stats: "Demostración de Marca | Impulso de Ventas",
-    desc: "Demostración directa al shopper en tiendas de autoservicio (Soriana, HEB, Walmart) y activación de promociones.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana-san-nicolas.jpg"
+    tag: "Deportes & Fitness",
+    stats: "Condición Atlética | Carisma",
+    desc: "Activaciones en centros de entrenamiento, torneos de pádel, carreras 5K/10K y marcas de suplementación.",
+    image: "/images/modelos/edecan-deportiva-casual.jpg"
   },
   {
-    id: "gios-eventos",
-    name: "Gios & Animadores de Marca",
-    role: "Eventos Masivos & Deportivos",
-    city: "Estadios / Conciertos / Calles",
-    category: "hostess",
-    tag: "Gios & Animación",
-    stats: "Energía Contagiosa | Dinámicas Masivas",
-    desc: "Presencia en carreras 5K/10K, activaciones en estadios, eventos de marcas de bebidas y animadores con micrófono.",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-evento.jpg"
+    id: "modelo-playa",
+    name: "Modelos Temporada & Playa",
+    role: "Campañas Verano & Resorts",
+    city: "Cancún / Riviera Maya / Monterrey",
+    category: "modelos",
+    tag: "Campañas de Verano",
+    stats: "Estilo Fresco | Lookbook Exterior",
+    desc: "Campañas para marcas de bebidas, trajes de baño, hoteles y festivales de playa en el Caribe Mexicano.",
+    image: "/images/modelos/modelo-verano-promocion.jpg"
+  },
+  {
+    id: "edecanes-stands",
+    name: "Modelos Comerciales en Stand",
+    role: "Demostración de Marca & Ventas",
+    city: "Monterrey / Cintermex",
+    category: "btl",
+    tag: "Punto de Venta & Stands",
+    stats: "Proactividad Comercial | Cierre de Ventas",
+    desc: "Explicación interactiva de catálogo, entrega de muestras de producto y registro ágil de visitantes en ferias comerciales.",
+    image: "/images/modelos/modelos-duo-promocion.jpg"
   }
 ];
 ---

@@ -1,0 +1,416 @@
+{
+  "branding": [
+    {
+      "file": "logo-golden-publicity.jpg",
+      "originalName": "10.jpeg",
+      "path": "/images/branding/logo-golden-publicity.jpg",
+      "title": "Logo Oficial Golden Publicity",
+      "category": "branding"
+    },
+    {
+      "file": "logo-icono.jpg",
+      "originalName": "e1bc6a72-cc77-4821-a896-8e2ec0d5f9e4.jpg",
+      "path": "/images/branding/logo-icono.jpg",
+      "title": "Emblema GP",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-vasos-sonrix.jpg",
+      "originalName": "477571668_581345684891700_7532196661002535119_n.jpg",
+      "path": "/images/branding/merchandising-vasos-sonrix.jpg",
+      "title": "Vasos Promocionales Sonrix",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-playeras-medios.jpg",
+      "originalName": "477601192_581345644891704_8594306236083535958_n.jpg",
+      "path": "/images/branding/merchandising-playeras-medios.jpg",
+      "title": "Textil Promocional Medios y Radio",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-playeras-exhibicion.jpg",
+      "originalName": "477796192_581345468225055_4830235701533495576_n.jpg",
+      "path": "/images/branding/merchandising-playeras-exhibicion.jpg",
+      "title": "Playeras Promocionales de Campaña",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-gorras-playeras.jpg",
+      "originalName": "478848242_581334728226129_8237417201606815603_n.jpg",
+      "path": "/images/branding/merchandising-gorras-playeras.jpg",
+      "title": "Gorras y Playeras Personalizadas",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-termos-samsung.jpg",
+      "originalName": "478954484_581335144892754_210898860617289079_n.jpg",
+      "path": "/images/branding/merchandising-termos-samsung.jpg",
+      "title": "Termos y Cilindros Samsung",
+      "category": "branding"
+    },
+    {
+      "file": "merchandising-botellas-agua.jpg",
+      "originalName": "500390348_658298057196462_179359701283979005_n.jpg",
+      "path": "/images/branding/merchandising-botellas-agua.jpg",
+      "title": "Exhibidor de Botellas Publicitarias",
+      "category": "branding"
+    },
+    {
+      "file": "stand-institucional-quienes-somos.jpg",
+      "originalName": "93171292-f148-4855-b4c1-1af459a05b78.jpg",
+      "path": "/images/branding/stand-institucional-quienes-somos.jpg",
+      "title": "Stand Institucional Quiénes Somos",
+      "category": "branding"
+    },
+    {
+      "file": "banner-stand-distrito-padel.jpg",
+      "originalName": "b5338eda-01e6-4597-b288-23e6570a4a9e.jpg",
+      "path": "/images/branding/banner-stand-distrito-padel.jpg",
+      "title": "Banner Stand Distrito Pádel",
+      "category": "branding"
+    },
+    {
+      "file": "totem-institucional-quienes-somos.jpg",
+      "originalName": "f72f9e3d-9aa4-40a2-a181-05828cc506bc.jpg",
+      "path": "/images/branding/totem-institucional-quienes-somos.jpg",
+      "title": "Tótem Institucional Golden Publicity",
+      "category": "branding"
+    }
+  ],
+  "modelos": [
+    {
+      "file": "modelo-duo-gala.jpg",
+      "originalName": "3b11ca8c-05b3-48d5-8298-12db21cf1297.jpg",
+      "path": "/images/modelos/modelo-duo-gala.jpg",
+      "title": "Dúo Edecanes de Gala",
+      "category": "modelos"
+    },
+    {
+      "file": "modelo-masculino-fashion.jpg",
+      "originalName": "472247743_554469497579319_3748825006395159487_n.jpg",
+      "path": "/images/modelos/modelo-masculino-fashion.jpg",
+      "title": "Modelo Masculino Campaña Moda",
+      "category": "modelos"
+    },
+    {
+      "file": "pareja-modelos-formal.jpg",
+      "originalName": "475837675_575474058812196_4337676094713881033_n.jpg",
+      "path": "/images/modelos/pareja-modelos-formal.jpg",
+      "title": "Pareja Talento Golden Gala",
+      "category": "modelos"
+    },
+    {
+      "file": "edecan-bienvenida-protocolo.jpg",
+      "originalName": "477197569_581842801508655_74539089225362839_n.jpg",
+      "path": "/images/modelos/edecan-bienvenida-protocolo.jpg",
+      "title": "Edecán de Protocolo y Recepción",
+      "category": "modelos"
+    },
+    {
+      "file": "modelo-evento-interior.jpg",
+      "originalName": "499703083_659839280375673_5019185827736754546_n.jpg",
+      "path": "/images/modelos/modelo-evento-interior.jpg",
+      "title": "Edecán en Evento Corporativo",
+      "category": "modelos"
+    },
+    {
+      "file": "edecan-deportiva-casual.jpg",
+      "originalName": "52a5e31b-0b6b-4d01-8071-fb64610f58bd.jpg",
+      "path": "/images/modelos/edecan-deportiva-casual.jpg",
+      "title": "Talento Deportivo y Fitness",
+      "category": "modelos"
+    },
+    {
+      "file": "equipo-edecanes-corporativas.jpg",
+      "originalName": "571314087_789835110709422_5225209790313704499_n.jpg",
+      "path": "/images/modelos/equipo-edecanes-corporativas.jpg",
+      "title": "Equipo de Edecanes Corporativas",
+      "category": "modelos"
+    },
+    {
+      "file": "modelo-retrato-profesional.jpg",
+      "originalName": "605289536_834063222953277_760637287742971759_n.jpg",
+      "path": "/images/modelos/modelo-retrato-profesional.jpg",
+      "title": "Retrato Modelo Editorial AAA",
+      "category": "modelos"
+    },
+    {
+      "file": "edecanes-uniforme-corporativo-1.jpg",
+      "originalName": "641250622_884994727860126_1720154879511403201_n.jpg",
+      "path": "/images/modelos/edecanes-uniforme-corporativo-1.jpg",
+      "title": "Edecanes AAA Uniforme Corporativo",
+      "category": "modelos"
+    },
+    {
+      "file": "edecanes-uniforme-corporativo-2.jpg",
+      "originalName": "641250622_884994727860126_1720154879511403201_n (1).jpg",
+      "path": "/images/modelos/edecanes-uniforme-corporativo-2.jpg",
+      "title": "Edecanes AAA Presencia de Marca",
+      "category": "modelos"
+    },
+    {
+      "file": "modelos-duo-promocion.jpg",
+      "originalName": "658790418_914635714896027_2361461451097387825_n.jpg",
+      "path": "/images/modelos/modelos-duo-promocion.jpg",
+      "title": "Modelos Promocionales en Stand",
+      "category": "modelos"
+    },
+    {
+      "file": "modelos-duo-elegante-negro.jpg",
+      "originalName": "725860219_982002944825970_2378269785686587667_n.jpg",
+      "path": "/images/modelos/modelos-duo-elegante-negro.jpg",
+      "title": "Hostess VIP Conjunto Negro",
+      "category": "modelos"
+    },
+    {
+      "file": "modelo-verano-promocion.jpg",
+      "originalName": "ba27df7a-c312-4e8f-9efb-384a98f05a5d.jpg",
+      "path": "/images/modelos/modelo-verano-promocion.jpg",
+      "title": "Modelo Campaña Verano y Playa",
+      "category": "modelos"
+    },
+    {
+      "file": "edecanes-uniforme-amarillo-mro.jpg",
+      "originalName": "bac6122e-bde0-4329-9fc6-1d7fb6a53530.jpg",
+      "path": "/images/modelos/edecanes-uniforme-amarillo-mro.jpg",
+      "title": "Edecanes BTL Uniforme Patrocinador",
+      "category": "modelos"
+    }
+  ],
+  "activaciones": [
+    {
+      "file": "activacion-juego-inflable.jpg",
+      "originalName": "10680a8c-c1d8-4d6d-9e62-7faa787cb9bb.jpg",
+      "path": "/images/activaciones/activacion-juego-inflable.jpg",
+      "title": "Activación Recreativa Juego Inflable",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-domo-inflable.jpg",
+      "originalName": "370b7cfd-cfe6-4d71-be64-5dabbb45f4c7.jpg",
+      "path": "/images/activaciones/activacion-domo-inflable.jpg",
+      "title": "Domo Inflable Promocional Exterior",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-stand-exterior.jpg",
+      "originalName": "474492689_567645106261758_4484354592956449073_n.jpg",
+      "path": "/images/activaciones/activacion-stand-exterior.jpg",
+      "title": "Módulo Promocional BTL Exterior",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-botarga-roja-promotor.jpg",
+      "originalName": "476794469_581842741508661_3710052823556019160_n.jpg",
+      "path": "/images/activaciones/activacion-botarga-roja-promotor.jpg",
+      "title": "Animación con Botarga y Animador",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-botargas-masiva.jpg",
+      "originalName": "477074656_581926911500244_8120650974075920385_n.jpg",
+      "path": "/images/activaciones/activacion-botargas-masiva.jpg",
+      "title": "Activación Masiva con Botargas",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-bicicletas-rotuladas.jpg",
+      "originalName": "480242366_605410059151929_5438382579923312930_n.jpg",
+      "path": "/images/activaciones/activacion-bicicletas-rotuladas.jpg",
+      "title": "Campaña Móvil Bici-Vallas Rotuladas",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-distrito-padel-exterior.jpg",
+      "originalName": "480813878_589429277416674_2221732719097625047_n.jpg",
+      "path": "/images/activaciones/activacion-distrito-padel-exterior.jpg",
+      "title": "Patrocinio Deportivo Distrito Pádel",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-camioneta-clasica-rotulada.jpg",
+      "originalName": "482127346_612891921737076_4920480643436375115_n.jpg",
+      "path": "/images/activaciones/activacion-camioneta-clasica-rotulada.jpg",
+      "title": "Vehículo Promocional Vintage Rotulado",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-botarga-roja-parque.jpg",
+      "originalName": "500903421_665022673190667_2636333743103515283_n.jpg",
+      "path": "/images/activaciones/activacion-botarga-roja-parque.jpg",
+      "title": "Activación en Parque Público",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-promotora-naranja.jpg",
+      "originalName": "555045339_759670640392536_3526330383269794150_n.jpg",
+      "path": "/images/activaciones/activacion-promotora-naranja.jpg",
+      "title": "Promotoría en Punto Estratégico",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-automotriz-sampling.jpg",
+      "originalName": "555697114_759670813725852_4562053703102009168_n.jpg",
+      "path": "/images/activaciones/activacion-automotriz-sampling.jpg",
+      "title": "Activación Automotriz y Muestreo",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-stand-venta-promocional.jpg",
+      "originalName": "590749467_812877625071837_6528883670324253285_n.jpg",
+      "path": "/images/activaciones/activacion-stand-venta-promocional.jpg",
+      "title": "Módulo de Venta y Promoción Directa",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-retail-exhibicion-pdv.jpg",
+      "originalName": "59623057-f632-464d-a59d-57b39c811676.jpg",
+      "path": "/images/activaciones/activacion-retail-exhibicion-pdv.jpg",
+      "title": "Exhibición y Acomodo Retail en PDV",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-navidena-santa-botarga.jpg",
+      "originalName": "599591954_827875963572003_9017607433079555936_n.jpg",
+      "path": "/images/activaciones/activacion-navidena-santa-botarga.jpg",
+      "title": "Activación Navideña y Personajes",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-stand-lonas-exterior.jpg",
+      "originalName": "658965761_914635688229363_3310956103647394961_n.jpg",
+      "path": "/images/activaciones/activacion-stand-lonas-exterior.jpg",
+      "title": "Stand Informativo y Registro BTL",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-botargas-amarillas.jpg",
+      "originalName": "710192698_964154129944185_4476320704245755579_n.jpg",
+      "path": "/images/activaciones/activacion-botargas-amarillas.jpg",
+      "title": "Animadores Botargas Espectáculo",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-deportiva-pasto-sintetico.jpg",
+      "originalName": "a6c72d4a-e16c-4f2c-9c3f-e3e91e044ab5.jpg",
+      "path": "/images/activaciones/activacion-deportiva-pasto-sintetico.jpg",
+      "title": "Montaje Deportivo Cancha Padel",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-promotora-juguetes.jpg",
+      "originalName": "b6bc6755-b0f2-4a82-a5fa-6e4877a181df.jpg",
+      "path": "/images/activaciones/activacion-promotora-juguetes.jpg",
+      "title": "Edecán Promoción Juguetería",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-plaza-cinepolis-cancha.jpg",
+      "originalName": "c1e2add5-76b9-4d94-8a2b-c9c43b50295f.jpg",
+      "path": "/images/activaciones/activacion-plaza-cinepolis-cancha.jpg",
+      "title": "Cancha Interactiva en Plaza Comercial",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-plaza-comercial-pasillo.jpg",
+      "originalName": "c41e1bef-79a6-49f4-9d27-c2c7230ab12e.jpg",
+      "path": "/images/activaciones/activacion-plaza-comercial-pasillo.jpg",
+      "title": "Pasillo Vivencial en Centro Comercial",
+      "category": "activaciones"
+    },
+    {
+      "file": "activacion-plaza-cancha-padel.jpg",
+      "originalName": "f365d56f-4681-45e9-b7e8-25c194e9ff48.jpg",
+      "path": "/images/activaciones/activacion-plaza-cancha-padel.jpg",
+      "title": "Cancha Pádel Interactiva en Mall",
+      "category": "activaciones"
+    }
+  ],
+  "eventos": [
+    {
+      "file": "evento-conferencia-escenario.jpg",
+      "originalName": "0ac4ecac-621a-414b-9d09-1887f7a426a4.jpg",
+      "path": "/images/eventos/evento-conferencia-escenario.jpg",
+      "title": "Conferencia y Asamblea Corporativa",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-speaker-microfono.jpg",
+      "originalName": "474519787_568080392884896_3402416410111452507_n.jpg",
+      "path": "/images/eventos/evento-speaker-microfono.jpg",
+      "title": "Maestro de Ceremonias en Escenario",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-concierto-festival-masivo.jpg",
+      "originalName": "474682800_567533202939615_4738499117485910841_n.jpg",
+      "path": "/images/eventos/evento-concierto-festival-masivo.jpg",
+      "title": "Festival y Concierto Masivo al Aire Libre",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-concierto-escenario-vivo.jpg",
+      "originalName": "474746489_567532449606357_6153186315296007750_n.jpg",
+      "path": "/images/eventos/evento-concierto-escenario-vivo.jpg",
+      "title": "Presentación Musical en Vivo",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-pasarela-moda-gala.jpg",
+      "originalName": "475665253_575474255478843_5371282746454513953_n.jpg",
+      "path": "/images/eventos/evento-pasarela-moda-gala.jpg",
+      "title": "Pasarela de Moda y Gala",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-salon-escalinata-formal.jpg",
+      "originalName": "475970122_575474115478857_5039916397319206935_n.jpg",
+      "path": "/images/eventos/evento-salon-escalinata-formal.jpg",
+      "title": "Salón de Eventos y Montaje Exclusivo",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-expo-stand-comercial.jpg",
+      "originalName": "480474606_586446971048238_4520259247556853963_n.jpg",
+      "path": "/images/eventos/evento-expo-stand-comercial.jpg",
+      "title": "Stand en Expo y Feria Comercial",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-inauguracion-arco-globos.jpg",
+      "originalName": "480511818_589419737417628_4162484900400201175_n.jpg",
+      "path": "/images/eventos/evento-inauguracion-arco-globos.jpg",
+      "title": "Inauguración Oficial con Corte de Listón",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-expo-convencion-interior.jpg",
+      "originalName": "480599563_586448404381428_2710718011698131918_n.jpg",
+      "path": "/images/eventos/evento-expo-convencion-interior.jpg",
+      "title": "Pabellón de Convenciones y Expos",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-expo-stand-tokohama.jpg",
+      "originalName": "725750994_982002924825972_7912592107662318376_n.jpg",
+      "path": "/images/eventos/evento-expo-stand-tokohama.jpg",
+      "title": "Stand Industrial Tokohama en Convención",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-auditorio-pantallas.jpg",
+      "originalName": "726357959_982002978159300_5904345790030918073_n.jpg",
+      "path": "/images/eventos/evento-auditorio-pantallas.jpg",
+      "title": "Auditorio Corporativo con Pantallas LED",
+      "category": "eventos"
+    },
+    {
+      "file": "evento-premiacion-corporativa-escenario.jpg",
+      "originalName": "76de183c-9fab-4bfc-9fca-ec25b23bf13e.jpg",
+      "path": "/images/eventos/evento-premiacion-corporativa-escenario.jpg",
+      "title": "Ceremonia de Premiación y Reconocimientos",
+      "category": "eventos"
+    }
+  ]
+}

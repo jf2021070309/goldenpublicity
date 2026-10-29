@@ -1,95 +1,102 @@
 ---
-// BrandPromoGallery.astro (Experiencias BTL y Eventos Golden Publicity)
-const experiences = [
-  {
-    title: "Activación en Televisión en Vivo",
-    client: "Multimedios Televisión",
-    category: "television",
-    tag: "TV en Vivo",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-television-en-vivo.jpg"
-  },
-  {
-    title: "Activación Andamios Amarillos",
-    client: "Andamios Amarillos",
-    category: "btl",
-    tag: "Expo Industrial",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/andamios-amarillos-evento-activacion.jpg"
-  },
-  {
-    title: "Batucada & BTL Dinámico",
-    client: "Activación Callejera Monterrey",
-    category: "btl",
-    tag: "BTL Masivo",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/batucada-activacion-monterrey.jpg"
-  },
-  {
-    title: "Fashion Show & Runway de Moda",
-    client: "Galerías Valle Oriente",
-    category: "pasarela",
-    tag: "Fashion Show",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fashion-show-activacion.jpg"
-  },
-  {
-    title: "Activación PDV Soriana San Nicolás",
-    client: "Campaña Retail y Autoservicio",
-    category: "retail",
-    tag: "Punto de Venta",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana-san-nicolas.jpg"
-  },
-  {
-    title: "Activación Industrial en Sitio",
-    client: "Apodaca Industrial Park",
-    category: "btl",
-    tag: "Evento Corporativo",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-sitio-apodaca.jpg"
-  },
-  {
-    title: "Activación Promocional Fullock",
-    client: "Lanzamiento y Campaña de Marca",
-    category: "btl",
-    tag: "Activación VIP",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/fullock-activacion.jpg"
-  },
-  {
-    title: "Medios Impresos y Gran Formato",
-    client: "Publicidad Exterior en Monterrey",
-    category: "impresos",
-    tag: "Impresos & Stands",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/medios-impresos-en-monterrey-scaled.jpg"
-  },
-  {
-    title: "Muestreo y Degustación en Tienda",
-    client: "Activaciones Soriana",
-    category: "retail",
-    tag: "Degustación",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-en-soriana.jpg"
-  },
-  {
-    title: "Lanzamiento y Presencia de Marca",
-    client: "Eventos Especiales y Expos",
-    category: "eventos",
-    tag: "Lanzamiento VIP",
-    image: "https://www.goldenpublicity.com.mx/wp-content/uploads/2024/05/activacion-evento.jpg"
-  }
+// BrandPromoGallery.astro (Portafolio Completo 360° - 58 Proyectos Golden Publicity)
+import catalog from '../../public/images/catalog.json';
+
+const categoryTags = {
+  activaciones: 'BTL & Guerrilla',
+  modelos: 'Talento & Modelos',
+  eventos: 'Eventos & Expos',
+  branding: 'Branding & Merch'
+};
+
+// Compile all 58 categorized assets into an organized portfolio
+const allProjects = [
+  ...catalog.activaciones.map((item, idx) => ({
+    id: `act-${idx}`,
+    title: item.title,
+    category: 'activaciones',
+    tag: categoryTags.activaciones,
+    client: 'Activación BTL en Campo',
+    image: item.path
+  })),
+  ...catalog.modelos.map((item, idx) => ({
+    id: `mod-${idx}`,
+    title: item.title,
+    category: 'modelos',
+    tag: categoryTags.modelos,
+    client: 'Talento & Imagen Golden',
+    image: item.path
+  })),
+  ...catalog.eventos.map((item, idx) => ({
+    id: `eve-${idx}`,
+    title: item.title,
+    category: 'eventos',
+    tag: categoryTags.eventos,
+    client: 'Producción & Convenciones',
+    image: item.path
+  })),
+  ...catalog.branding.map((item, idx) => ({
+    id: `bra-${idx}`,
+    title: item.title,
+    category: 'branding',
+    tag: categoryTags.branding,
+    client: 'Identidad & Promocionales',
+    image: item.path
+  }))
 ];
+
+const counts = {
+  all: allProjects.length,
+  activaciones: catalog.activaciones.length,
+  modelos: catalog.modelos.length,
+  eventos: catalog.eventos.length,
+  branding: catalog.branding.length
+};
 ---
 
 <section class="experiences-section" id="experiencias">
   <div class="container">
     <div class="experiences-header text-center reveal-scroll">
-      <span class="section-kicker">Casos de Éxito & Experiencias BTL</span>
+      <span class="section-kicker">Portafolio Completo 360° & Casos Reales</span>
       <h2 class="section-title">
-        Activaciones BTL de Alto Impacto<span class="dot">.</span>
+        Galería Integral de Proyectos & Talento<span class="dot">.</span>
       </h2>
       <p class="section-lead">
-        A lo largo de los años hemos participado en activaciones memorables en <strong>televisión en vivo, supermercados, centros comerciales, expos industriales y lanzamientos masivos</strong>. Cada proyecto está diseñado para crear una experiencia tangible y medible que enamora al consumidor.
+        Explora el <strong>100% de nuestras campañas ejecutadas</strong> en Monterrey, San Pedro y toda la República Mexicana. Activaciones BTL, edecanes AAA, modelos de pasarela, eventos masivos y merchandising de alto impacto.
       </p>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-filter-bar">
+        <button class="gallery-chip active" data-filter="all">
+          <i class="fa fa-th-large"></i> Todos <span class="chip-count">{counts.all}</span>
+        </button>
+        <button class="gallery-chip" data-filter="activaciones">
+          <i class="fa fa-bullhorn"></i> Activaciones BTL <span class="chip-count">{counts.activaciones}</span>
+        </button>
+        <button class="gallery-chip" data-filter="modelos">
+          <i class="fa fa-camera"></i> Talento & Modelos <span class="chip-count">{counts.modelos}</span>
+        </button>
+        <button class="gallery-chip" data-filter="eventos">
+          <i class="fa fa-calendar-check-o"></i> Eventos & Expos <span class="chip-count">{counts.eventos}</span>
+        </button>
+        <button class="gallery-chip" data-filter="branding">
+          <i class="fa fa-tag"></i> Branding & Merch <span class="chip-count">{counts.branding}</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Experiences Mosaic Grid -->
-    <div class="experiences-grid reveal-stagger">
-      {experiences.map((item, idx) => (
-        <div class={`exp-card ${idx === 0 || idx === 3 ? 'exp-card-large' : ''}`}>
+    <!-- 58-Project Dynamic Grid -->
+    <div class="experiences-grid" id="portfolio-grid">
+      {allProjects.map((item, idx) => (
+        <div 
+          class={`exp-card ${idx < 12 ? 'is-visible' : 'is-hidden'}`} 
+          data-category={item.category}
+          data-index={idx}
+          data-title={item.title}
+          data-tag={item.tag}
+          data-client={item.client}
+          data-image={item.image}
+        >
           <div class="exp-img-wrapper">
             <img src={item.image} alt={`${item.title} - Golden Publicity`} loading="lazy" />
             <div class="exp-gradient-overlay"></div>
@@ -102,17 +109,22 @@ const experiences = [
           </div>
 
           <div class="exp-hover-action">
-            <a 
-              href={`https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20interesa%20una%20activaci%C3%B3n%20similar%20a:%20${encodeURIComponent(item.title)}`}
-              target="_blank"
-              rel="noopener"
-              class="btn-exp-quote"
-            >
-              <i class="fa fa-whatsapp"></i> Cotizar Activación
-            </a>
+            <span class="btn-exp-zoom" title="Ver en pantalla completa">
+              <i class="fa fa-search-plus"></i> Ampliar
+            </span>
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Load More Controls -->
+    <div class="load-more-wrapper text-center">
+      <div class="portfolio-counter" id="portfolio-counter">
+        Mostrando <strong id="visible-count">12</strong> de <strong id="total-count">{counts.all}</strong> proyectos
+      </div>
+      <button id="btn-load-more" class="btn-load-more">
+        <i class="fa fa-plus-circle"></i> Cargar más proyectos (<span id="remaining-count">{counts.all - 12}</span> restantes)
+      </button>
     </div>
 
     <!-- Gallery Call to Action -->
@@ -127,59 +139,315 @@ const experiences = [
             <i class="fa fa-paper-plane"></i> Cotizar Mi Campaña
           </a>
           <a 
-            href="https://www.instagram.com/goldenpublicity23" 
+            href="https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20estoy%20viendo%20su%20portafolio%20y%20quiero%20cotizar" 
             target="_blank" 
             rel="noopener" 
-            class="btn-golden-secondary"
+            class="btn-golden-whatsapp"
           >
-            <i class="fa fa-instagram"></i> Ver Más en Instagram
+            <i class="fa fa-whatsapp"></i> Hablar con un Asesor
           </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Lightbox Modal for all 58 images -->
+  <div id="gallery-lightbox" class="gallery-lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar modal">&times;</button>
+      
+      <!-- Nav arrows -->
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Foto anterior">
+        <i class="fa fa-angle-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Foto siguiente">
+        <i class="fa fa-angle-right"></i>
+      </button>
+
+      <div class="lightbox-body">
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" src="" alt="Golden Publicity Proyecto" />
+        </div>
+        <div class="lightbox-meta">
+          <div class="lightbox-meta-top">
+            <span class="lightbox-tag" id="lightbox-tag">BTL</span>
+            <span class="lightbox-counter" id="lightbox-counter">1 / 58</span>
+          </div>
+          <h3 class="lightbox-title" id="lightbox-title">Título del Proyecto</h3>
+          <p class="lightbox-client" id="lightbox-client"><i class="fa fa-check-circle"></i> Campaña Verificada</p>
+          <div class="lightbox-actions">
+            <a id="lightbox-wa-btn" href="#" target="_blank" rel="noopener" class="btn-lightbox-wa">
+              <i class="fa fa-whatsapp"></i> Cotizar este tipo de proyecto
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('portfolio-grid');
+    if (!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll('.exp-card'));
+    const filterButtons = document.querySelectorAll('.gallery-chip');
+    const btnLoadMore = document.getElementById('btn-load-more');
+    const visibleCountEl = document.getElementById('visible-count');
+    const totalCountEl = document.getElementById('total-count');
+    const remainingCountEl = document.getElementById('remaining-count');
+
+    // Lightbox elements
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTag = document.getElementById('lightbox-tag');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxClient = document.getElementById('lightbox-client');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxWaBtn = document.getElementById('lightbox-wa-btn');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentFilter = 'all';
+    const BATCH_SIZE = 12;
+    let currentlyShownCount = BATCH_SIZE;
+    let activeVisibleCards = [];
+    let currentLightboxIndex = 0;
+
+    function getFilteredCards() {
+      if (currentFilter === 'all') return cards;
+      return cards.filter(c => c.getAttribute('data-category') === currentFilter);
+    }
+
+    function updateDisplay() {
+      const filtered = getFilteredCards();
+      activeVisibleCards = filtered;
+
+      cards.forEach(card => {
+        card.classList.remove('is-visible');
+        card.classList.add('is-hidden');
+      });
+
+      const toShow = filtered.slice(0, currentlyShownCount);
+      toShow.forEach((card, index) => {
+        card.classList.remove('is-hidden');
+        card.classList.add('is-visible');
+        card.style.animationDelay = `${(index % BATCH_SIZE) * 40}ms`;
+      });
+
+      const visibleTotal = toShow.length;
+      const filteredTotal = filtered.length;
+      const remaining = Math.max(0, filteredTotal - visibleTotal);
+
+      if (visibleCountEl) visibleCountEl.textContent = visibleTotal;
+      if (totalCountEl) totalCountEl.textContent = filteredTotal;
+      if (remainingCountEl) remainingCountEl.textContent = remaining;
+
+      if (btnLoadMore) {
+        if (remaining > 0) {
+          btnLoadMore.style.display = 'inline-flex';
+        } else {
+          btnLoadMore.style.display = 'none';
+        }
+      }
+    }
+
+    // Filter clicks
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter') || 'all';
+        currentlyShownCount = BATCH_SIZE;
+        updateDisplay();
+      });
+    });
+
+    // Load More click
+    if (btnLoadMore) {
+      btnLoadMore.addEventListener('click', () => {
+        currentlyShownCount += BATCH_SIZE;
+        updateDisplay();
+      });
+    }
+
+    // Lightbox open
+    function openLightbox(index) {
+      if (!activeVisibleCards.length) return;
+      currentLightboxIndex = (index + activeVisibleCards.length) % activeVisibleCards.length;
+      const card = activeVisibleCards[currentLightboxIndex];
+      if (!card) return;
+
+      const img = card.getAttribute('data-image');
+      const title = card.getAttribute('data-title');
+      const tag = card.getAttribute('data-tag');
+      const client = card.getAttribute('data-client');
+
+      lightboxImg.src = img;
+      lightboxTitle.textContent = title;
+      lightboxTag.textContent = tag;
+      lightboxClient.innerHTML = `<i class="fa fa-building-o"></i> ${client}`;
+      lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${activeVisibleCards.length}`;
+
+      lightboxWaBtn.href = `https://wa.me/5218116837738?text=Hola%20Golden%20Publicity,%20me%20interesa%20cotizar%20un%20proyecto%20similar%20a:%20${encodeURIComponent(title)}`;
+
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = activeVisibleCards.indexOf(card);
+        if (idx !== -1) {
+          openLightbox(idx);
+        }
+      });
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(currentLightboxIndex - 1);
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(currentLightboxIndex + 1);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') openLightbox(currentLightboxIndex - 1);
+      if (e.key === 'ArrowRight') openLightbox(currentLightboxIndex + 1);
+    });
+
+    // Initial run
+    updateDisplay();
+  });
+</script>
+
 <style>
   .experiences-section {
-    padding: 100px 0 90px;
+    padding: 110px 0 100px;
     background-color: #ffffff;
     position: relative;
   }
 
   .experiences-header {
-    max-width: 860px;
-    margin: 0 auto 55px;
+    max-width: 960px;
+    margin: 0 auto 50px;
   }
 
+  /* Filter bar */
+  .gallery-filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+  }
 
+  .gallery-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .gallery-chip:hover {
+    background: #e2e8f0;
+    color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+
+  .gallery-chip.active {
+    background: var(--color-navy);
+    color: #ffffff;
+    border-color: var(--color-navy);
+    box-shadow: 0 4px 14px rgba(6, 43, 92, 0.25);
+  }
+
+  .chip-count {
+    background: rgba(0, 0, 0, 0.12);
+    font-size: 0.75rem;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+
+  .gallery-chip.active .chip-count {
+    background: var(--color-orange);
+    color: #ffffff;
+  }
 
   /* Grid Layout */
   .experiences-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
 
   .exp-card {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    height: 340px;
+    height: 330px;
     box-shadow: 0 10px 25px rgba(6, 43, 92, 0.08);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
     cursor: pointer;
     background: var(--color-navy);
   }
 
-  .exp-card-large {
-    grid-column: span 2;
+  .exp-card.is-hidden {
+    display: none !important;
+  }
+
+  .exp-card.is-visible {
+    display: block;
+    animation: fadeInScale 0.45s ease forwards;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
 
   .exp-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(255, 75, 0, 0.2);
+    box-shadow: 0 18px 40px rgba(255, 75, 0, 0.22);
   }
 
   .exp-img-wrapper {
@@ -193,7 +461,7 @@ const experiences = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 20%;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -204,12 +472,12 @@ const experiences = [
   .exp-gradient-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(6, 43, 92, 0.15) 0%, rgba(6, 43, 92, 0.5) 50%, rgba(6, 43, 92, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.1) 0%, rgba(6, 43, 92, 0.55) 55%, rgba(6, 43, 92, 0.95) 100%);
     transition: background 0.3s ease;
   }
 
   .exp-card:hover .exp-gradient-overlay {
-    background: linear-gradient(180deg, rgba(6, 43, 92, 0.25) 0%, rgba(255, 75, 0, 0.4) 50%, rgba(6, 43, 92, 0.98) 100%);
+    background: linear-gradient(180deg, rgba(6, 43, 92, 0.2) 0%, rgba(255, 75, 0, 0.35) 50%, rgba(6, 43, 92, 0.98) 100%);
   }
 
   .exp-content {
@@ -217,7 +485,7 @@ const experiences = [
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 24px;
+    padding: 22px;
     z-index: 2;
     transition: transform 0.3s ease;
   }
@@ -236,7 +504,7 @@ const experiences = [
   }
 
   .exp-title {
-    font-size: 1.35rem;
+    font-size: 1.22rem;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.25;
@@ -244,19 +512,20 @@ const experiences = [
   }
 
   .exp-client {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: #cbd5e1;
     display: flex;
     align-items: center;
     gap: 6px;
+    margin: 0;
   }
 
   .exp-hover-action {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     transition: all 0.3s ease;
     z-index: 4;
   }
@@ -266,23 +535,69 @@ const experiences = [
     transform: translateY(0);
   }
 
-  .btn-exp-quote {
+  .btn-exp-zoom {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #25D366;
-    color: #ffffff;
-    font-size: 0.82rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-navy);
+    font-size: 0.8rem;
     font-weight: 700;
-    padding: 8px 16px;
+    padding: 7px 14px;
     border-radius: 999px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
   }
 
-  .btn-exp-quote:hover {
-    background: #1eb956;
-    transform: scale(1.05);
+  /* Load More Section */
+  .load-more-wrapper {
+    margin: 30px auto 65px;
+  }
+
+  .portfolio-counter {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-counter strong {
+    color: var(--color-navy);
+    font-weight: 700;
+  }
+
+  .btn-load-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: var(--color-navy);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 15px 36px;
+    border-radius: 999px;
+    border: 2px solid var(--color-navy);
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(6, 43, 92, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .btn-load-more:hover {
+    background: var(--color-navy);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(6, 43, 92, 0.2);
+  }
+
+  .btn-load-more i {
+    color: var(--color-orange);
+    font-size: 1.15rem;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-load-more:hover i {
+    transform: rotate(90deg);
+    color: #ffffff;
   }
 
   /* Bottom CTA Card */
@@ -341,11 +656,11 @@ const experiences = [
     color: #ffffff;
   }
 
-  .btn-golden-secondary {
+  .btn-golden-whatsapp {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--color-navy);
+    background: #25D366;
     color: #ffffff;
     font-family: var(--font-heading);
     font-size: 0.92rem;
@@ -354,23 +669,201 @@ const experiences = [
     letter-spacing: 1px;
     padding: 14px 28px;
     border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
     transition: var(--transition-smooth);
   }
 
-  .btn-golden-secondary:hover {
-    background: var(--color-orange);
+  .btn-golden-whatsapp:hover {
+    background: #1eb956;
     transform: translateY(-2px);
     color: #ffffff;
+  }
+
+  /* Lightbox Modal */
+  .gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .gallery-lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 43, 92, 0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .lightbox-dialog {
+    position: relative;
+    z-index: 2;
+    background: #0b1120;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background: var(--color-orange);
+    transform: rotate(90deg);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    transition: all 0.2s ease;
+  }
+
+  .lightbox-nav:hover {
+    background: var(--color-orange);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .lightbox-prev {
+    left: 16px;
+  }
+
+  .lightbox-next {
+    right: 16px;
+  }
+
+  .lightbox-body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .lightbox-img-wrap {
+    width: 100%;
+    height: 520px;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .lightbox-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .lightbox-meta {
+    padding: 24px 30px;
+    background: #0f172a;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .lightbox-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .lightbox-tag {
+    background: var(--color-orange);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .lightbox-counter {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .lightbox-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+  }
+
+  .lightbox-client {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin: 0 0 18px 0;
+  }
+
+  .lightbox-client i {
+    color: #38bdf8;
+  }
+
+  .btn-lightbox-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-lightbox-wa:hover {
+    background: #1eb956;
+    transform: translateY(-2px);
   }
 
   /* Responsive */
   @media (max-width: 992px) {
     .experiences-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .exp-card-large {
-      grid-column: span 1;
     }
 
     .cta-inner-card {
@@ -384,9 +877,13 @@ const experiences = [
     }
 
     .btn-golden-primary,
-    .btn-golden-secondary {
+    .btn-golden-whatsapp {
       width: 100%;
       justify-content: center;
+    }
+
+    .lightbox-img-wrap {
+      height: 380px;
     }
   }
 
@@ -405,6 +902,27 @@ const experiences = [
 
     .cta-text-side h3 {
       font-size: 1.3rem;
+    }
+
+    .gallery-filter-bar {
+      gap: 8px;
+    }
+
+    .gallery-chip {
+      padding: 8px 14px;
+      font-size: 0.82rem;
+    }
+
+    .lightbox-img-wrap {
+      height: 280px;
+    }
+
+    .lightbox-meta {
+      padding: 18px 20px;
+    }
+
+    .lightbox-title {
+      font-size: 1.15rem;
     }
   }
 </style>

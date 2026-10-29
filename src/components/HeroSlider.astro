@@ -3,42 +3,47 @@
 const slides = [
   {
     type: "brand",
-    bg: "https://agenciasurf.mx/wp-content/uploads/2024/12/slide-surf-plants.webp",
-    logo: "https://agenciasurf.mx/wp-content/uploads/2022/02/logo-surf.png",
-    subtitle: "#GoldenPublicity",
-    alt: "Golden Publicity - Edecanes y Modelos"
+    bg: "/images/eventos/evento-concierto-festival-masivo.jpg",
+    logo: "/images/branding/logo-golden-publicity.jpg",
+    subtitle: "LÍDER EN MEDIOS PUBLICITARIOS, BTL & MODELOS",
+    position: "center 35%",
+    alt: "Golden Publicity - Medios Publicitarios y Modelos"
   },
   {
     type: "headline",
-    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-mpower-2.jpg",
+    bg: "/images/activaciones/activacion-botargas-masiva.jpg",
     title: "IMPACTANTES",
     subtitle: "HAY QUE DESTACAR DEL RESTO PARA SER RECORDADO",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    alt: "Slide Mpower - Impactantes"
+    position: "center center",
+    alt: "Activación Masiva BTL - Golden Publicity"
   },
   {
     type: "headline",
-    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-mercedes.jpg",
+    bg: "/images/eventos/evento-expo-stand-tokohama.jpg",
     title: "ELEGANTES",
-    subtitle: "TENEMOS LA IMAGEN CORRECTA PARA TU MARCA",
+    subtitle: "TENEMOS EL TALENTO Y LA IMAGEN EXACTA PARA TU MARCA",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    alt: "Slide Mercedes - Elegantes"
+    position: "center center",
+    alt: "Expos y Stands Ejecutivos - Golden Publicity"
   },
   {
     type: "headline",
-    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-coca.jpg",
+    bg: "/images/activaciones/activacion-camioneta-clasica-rotulada.jpg",
     title: "DIFERENTES",
-    subtitle: "EXPERIENCIA DE MARCA LE LLAMAMOS",
+    subtitle: "EXPERIENCIAS BTL DE ALTO IMPACTO EN TODO MÉXICO",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    alt: "Slide Coca - Diferentes"
+    position: "center 45%",
+    alt: "Activaciones BTL y Vehículos Publicitarios"
   },
   {
     type: "headline",
-    bg: "https://agenciasurf.mx/wp-content/uploads/2022/01/slide-viajes-3.jpg",
-    title: "Y NOS ENCANTA VIAJAR",
-    subtitle: "LA IMAGEN QUE NECESITA TU EVENTO, SEA DONDE SEA",
+    bg: "/images/eventos/evento-premiacion-corporativa-escenario.jpg",
+    title: "COBERTURA NACIONAL",
+    subtitle: "MONTERREY, CDMX, GUADALAJARA, PUEBLA Y CANCÚN",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    alt: "Slide Viajes - Cobertura"
+    position: "center center",
+    alt: "Ceremonias y Eventos Corporativos Nacionales"
   }
 ];
 ---
@@ -47,7 +52,10 @@ const slides = [
   <div class="slides-container" id="slides-wrapper">
     {slides.map((slide, index) => (
       <div class={`slide ${index === 0 ? 'active' : ''}`} data-index={index}>
-        <div class="slide-bg" style={`background-image: url('${slide.bg}')`}></div>
+        <div 
+          class="slide-bg" 
+          style={`background-image: url('${slide.bg}'); background-position: ${slide.position || 'center center'};`}
+        ></div>
         <div class="slide-overlay"></div>
         <div class="slide-content">
           {slide.type === "brand" ? (
@@ -182,10 +190,9 @@ const slides = [
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    transform: scale(1.08);
-    transition: transform 7s ease-out;
+    transform: scale(1.02);
+    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .slide.active .slide-bg {

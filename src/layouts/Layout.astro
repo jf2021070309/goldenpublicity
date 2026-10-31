@@ -10,7 +10,7 @@ interface Props {
 const {
   title = "Golden Publicity | Líder en Medios Publicitarios, BTL y Modelos",
   description = "➤ Tel. 81 1683 7738 | Golden Publicity | Agencia líder en activaciones de marca BTL, edecanes AA/AAA, modelos, medios impresos y eventos en Monterrey y todo México.",
-  image = "/images/branding/logo-golden-publicity.jpg"
+  image = "/images/branding/logo-trans.png"
 } = Astro.props;
 ---
 
@@ -39,8 +39,9 @@ const {
   <meta name="twitter:image" content={image} />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="/images/branding/logo-icono.jpg" sizes="32x32" />
-  <link rel="apple-touch-icon" href="/images/branding/logo-icono.jpg" />
+  <link rel="icon" type="image/png" href="/images/branding/logo-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/branding/logo-icon.png" />
+  <link rel="apple-touch-icon" href="/images/branding/logo-icon.png" />
 
   <!-- FontAwesome & Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -48,6 +49,12 @@ const {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
 </head>
 <body>
+  <!-- Custom Interactive Magnetic Cursor (The3Key / Godly / Awwwards) -->
+  <div id="cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-follower" class="custom-cursor-follower" aria-hidden="true">
+    <span id="cursor-text" class="cursor-text"></span>
+  </div>
+
   <!-- Reading Progress Bar -->
   <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
 
@@ -55,80 +62,113 @@ const {
     <slot />
   </div>
 
-  <!-- Global Scroll Animation Script -->
+  <!-- Awwwards Motion Engine (Lenis, GSAP, 3D Tilt, Magnetic Physics) -->
   <script>
-    // Scroll progress bar
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      const bar = document.getElementById('scroll-progress-bar');
-      if (bar) bar.style.width = scrolled + '%';
-    });
-
-    // IntersectionObserver for scroll animations
-    const initScrollAnimations = () => {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08
-      };
-
-      const animateCounter = (el: HTMLElement) => {
-        const target = parseInt(el.getAttribute('data-count') || '0', 10);
-        if (!target) return;
-        const prefix = el.getAttribute('data-prefix') || '';
-        const suffix = el.getAttribute('data-suffix') || '';
-        let start = 0;
-        const duration = 1600;
-        const stepTime = 25;
-        const steps = duration / stepTime;
-        const increment = target / steps;
-        const timer = setInterval(() => {
-          start += increment;
-          if (start >= target) {
-            el.textContent = `${prefix}${target}${suffix}`;
-            clearInterval(timer);
-          } else {
-            el.textContent = `${prefix}${Math.floor(start)}${suffix}`;
-          }
-        }, stepTime);
-      };
-
-      const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            
-            // If it has counters inside
-            const counters = entry.target.querySelectorAll<HTMLElement>('[data-count]');
-            counters.forEach(c => animateCounter(c));
-            if (entry.target.hasAttribute('data-count')) {
-              animateCounter(entry.target as HTMLElement);
-            }
-
-            scrollObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Target elements with animation classes
-      const animatedElements = document.querySelectorAll(
-        '.reveal-scroll, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger'
-      );
-      animatedElements.forEach(el => scrollObserver.observe(el));
-    };
-
+    import { initAwwwardsMotion } from '../scripts/motion';
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initScrollAnimations);
+      document.addEventListener('DOMContentLoaded', () => initAwwwardsMotion());
     } else {
-      initScrollAnimations();
+      initAwwwardsMotion();
     }
   </script>
 </body>
 </html>
 
-<style>
+<style is:global>
+  /* Lenis Smooth Scroll System */
+  html.lenis, html.lenis-smooth {
+    height: auto;
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  /* Custom Interactive Magnetic Cursor (The3Key / Godly) */
+  .custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease, transform 0.05s ease;
+  }
+
+  .custom-cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid rgba(255, 75, 0, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+  }
+
+  .cursor-text {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .custom-cursor-follower.cursor-magnetic {
+    width: 62px;
+    height: 62px;
+    background: rgba(255, 75, 0, 0.12);
+    border-color: var(--color-orange);
+    box-shadow: 0 0 20px rgba(255, 75, 0, 0.3);
+  }
+
+  .custom-cursor-follower.cursor-card-view {
+    width: 76px;
+    height: 76px;
+    background: rgba(6, 43, 92, 0.88);
+    border-color: var(--color-orange);
+    box-shadow: 0 10px 30px rgba(255, 75, 0, 0.4);
+    backdrop-filter: blur(4px);
+  }
+
+  .custom-cursor-follower.cursor-card-view .cursor-text {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .custom-cursor-dot,
+    .custom-cursor-follower {
+      display: none !important;
+    }
+  }
+
   .scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -137,7 +177,6 @@ const {
     background: linear-gradient(90deg, var(--color-orange), #ff7a3d, var(--color-navy));
     width: 0%;
     z-index: 99999;
-    transition: width 0.1s ease-out;
     box-shadow: 0 0 10px rgba(255, 75, 0, 0.6);
   }
 

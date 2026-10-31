@@ -8,12 +8,15 @@
       <div class="footer-grid">
         <!-- Col 1: Brand & Bio -->
         <div class="footer-col brand-col">
-          <a href="/" class="footer-logo">
+          <a href="/" class="footer-logo" aria-label="Golden Publicity">
             <img 
-              src="/images/branding/logo-golden-publicity.jpg" 
+              src="/images/branding/logo-trans.png" 
               alt="Golden Publicity Logo" 
-              width="210" 
-              height="105" 
+              width="240" 
+              height="60" 
+              loading="lazy"
+              decoding="async"
+              class="footer-logo-img"
             />
           </a>
           <p class="footer-bio">
@@ -134,12 +137,12 @@
   }
 
   .footer-logo img {
-    max-height: 75px;
+    max-height: 60px;
     width: auto;
     object-fit: contain;
-    border-radius: 8px;
-    background: #ffffff;
-    padding: 6px 12px;
+    background: transparent;
+    padding: 0;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
   }
 
   .footer-bio {

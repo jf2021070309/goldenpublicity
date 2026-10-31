@@ -2,48 +2,54 @@
 // HeroSlider.astro
 const slides = [
   {
-    type: "brand",
-    bg: "/images/eventos/evento-concierto-festival-masivo.jpg",
-    logo: "/images/branding/logo-golden-publicity.jpg",
+    bg: "/images/eventos/evento-expo-stand-tokohama.jpg",
+    badge: "AGENCIA LÍDER EN MÉXICO",
+    title: "EXPERIENCIAS",
     subtitle: "LÍDER EN MEDIOS PUBLICITARIOS, BTL & MODELOS",
-    position: "center 35%",
-    alt: "Golden Publicity - Medios Publicitarios y Modelos"
+    gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
+    position: "center 40%",
+    alt: "Golden Publicity - Medios Publicitarios y Modelos",
+    hasCta: true
   },
   {
-    type: "headline",
     bg: "/images/activaciones/activacion-botargas-masiva.jpg",
+    badge: "ACTIVACIONES BTL",
     title: "IMPACTANTES",
     subtitle: "HAY QUE DESTACAR DEL RESTO PARA SER RECORDADO",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
     position: "center center",
-    alt: "Activación Masiva BTL - Golden Publicity"
+    alt: "Activación Masiva BTL - Golden Publicity",
+    hasCta: false
   },
   {
-    type: "headline",
-    bg: "/images/eventos/evento-expo-stand-tokohama.jpg",
+    bg: "/images/activaciones/activacion-distrito-padel-exterior.jpg",
+    badge: "TALENTO & EDECANES",
     title: "ELEGANTES",
     subtitle: "TENEMOS EL TALENTO Y LA IMAGEN EXACTA PARA TU MARCA",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    position: "center center",
-    alt: "Expos y Stands Ejecutivos - Golden Publicity"
+    position: "center 30%",
+    alt: "Talento y Modelos BTL - Golden Publicity",
+    hasCta: false
   },
   {
-    type: "headline",
     bg: "/images/activaciones/activacion-camioneta-clasica-rotulada.jpg",
+    badge: "CREATIVIDAD ESTRATÉGICA",
     title: "DIFERENTES",
     subtitle: "EXPERIENCIAS BTL DE ALTO IMPACTO EN TODO MÉXICO",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
     position: "center 45%",
-    alt: "Activaciones BTL y Vehículos Publicitarios"
+    alt: "Activaciones BTL y Vehículos Publicitarios",
+    hasCta: false
   },
   {
-    type: "headline",
-    bg: "/images/eventos/evento-premiacion-corporativa-escenario.jpg",
-    title: "COBERTURA NACIONAL",
+    bg: "/images/activaciones/activacion-botargas-amarillas.jpg",
+    badge: "PRESENCIA NACIONAL",
+    title: "COBERTURA TOTAL",
     subtitle: "MONTERREY, CDMX, GUADALAJARA, PUEBLA Y CANCÚN",
     gradient: "linear-gradient(90deg, #FF4B00 0%, #062B5C 100%)",
-    position: "center center",
-    alt: "Ceremonias y Eventos Corporativos Nacionales"
+    position: "center 35%",
+    alt: "Cobertura Nacional BTL Golden Publicity",
+    hasCta: false
   }
 ];
 ---
@@ -58,20 +64,22 @@ const slides = [
         ></div>
         <div class="slide-overlay"></div>
         <div class="slide-content">
-          {slide.type === "brand" ? (
-            <div class="brand-slide">
-              <img src={slide.logo} alt="Logo Golden Publicity" class="hero-brand-logo" />
-              <p class="hero-tagline">{slide.subtitle}</p>
-            </div>
-          ) : (
-            <div class="headline-slide">
-              <h1 class="hero-title">
-                {slide.title}<span class="hero-dot">.</span>
-              </h1>
-              <div class="hero-line" style={`background: ${slide.gradient}`}></div>
-              <p class="hero-subtitle">{slide.subtitle}</p>
-            </div>
-          )}
+          <div class="headline-slide">
+            {slide.badge && (
+              <span class="hero-badge">{slide.badge}</span>
+            )}
+            <h1 class="hero-title">
+              {slide.title}<span class="hero-dot">.</span>
+            </h1>
+            <div class="hero-line" style={`background: ${slide.gradient}`}></div>
+            <p class="hero-subtitle">{slide.subtitle}</p>
+            {slide.hasCta && (
+              <div class="hero-actions">
+                <a href="#contacto" class="btn-hero-primary">Cotizar Campaña</a>
+                <a href="#experiencias" class="btn-hero-secondary">Ver Activaciones</a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     ))}
@@ -202,7 +210,7 @@ const slides = [
   .slide-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+    background: radial-gradient(circle at center, rgba(6, 43, 92, 0.4) 0%, rgba(3, 10, 22, 0.78) 100%);
   }
 
   .slide-content {
@@ -216,37 +224,77 @@ const slides = [
     padding: 0 24px;
   }
 
-  /* Brand Slide */
-  .brand-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 1s ease forwards;
-  }
-
-  .hero-brand-logo {
-    width: 320px;
-    max-width: 80vw;
-    height: auto;
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
-    margin-bottom: 20px;
-  }
-
-  .hero-tagline {
-    font-family: var(--font-slogan);
-    font-size: 1.5rem;
-    letter-spacing: 4px;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
-  }
-
   /* Headline Slide */
   .headline-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1100px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: rgba(255, 75, 0, 0.14);
+    border: 1px solid rgba(255, 75, 0, 0.35);
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-hero-primary {
+    background-color: var(--color-orange);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(255, 75, 0, 0.4);
+  }
+
+  .btn-hero-primary:hover {
+    background-color: #e04100;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 75, 0, 0.55);
+  }
+
+  .btn-hero-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(6px);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 30px;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-hero-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffffff;
+    transform: translateY(-3px);
   }
 
   .hero-title {

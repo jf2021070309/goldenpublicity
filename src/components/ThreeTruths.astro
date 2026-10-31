@@ -3,105 +3,279 @@
 const truths = [
   {
     num: "VERDAD #1",
+    tag: "EXPERIENCIA DE MARCA",
     text: "Mucha gente prefiere las marcas que les hacen sentir o vivir cosas diferentes.",
-    bgImage: "/images/activaciones/activacion-plaza-cinepolis-cancha.jpg",
-    bgColor: "#fff4ee"
+    bgImage: "/images/activaciones/activacion-camioneta-clasica-rotulada.jpg",
+    position: "center 45%"
   },
   {
     num: "VERDAD #2",
+    tag: "IMPACTO VISUAL",
     text: "El ser humano relaciona el éxito, la seguridad y la calidad, con los rasgos atractivos.",
-    bgImage: "/images/modelos/modelo-retrato-profesional.jpg",
-    bgColor: "#edf4fc"
+    bgImage: "/images/modelos/modelos-duo-elegante-negro.jpg",
+    position: "center 20%"
   },
   {
     num: "VERDAD #3",
-    text: "Líderes en Medios Publicitarios, BTL y Modelos.<br />Y sí, somos <strong>Golden Publicity</strong>.",
-    bgImage: "/images/branding/totem-institucional-quienes-somos.jpg",
-    bgColor: "#ffebe0"
+    tag: "LIDERAZGO COMPROBADO",
+    text: "Líderes en Medios Publicitarios, BTL y Modelos.<br />Y sí, somos <strong class=\"brand-highlight\">Golden Publicity</strong>.",
+    bgImage: "/images/modelos/pareja-modelos-formal.jpg",
+    position: "center 25%"
   }
 ];
 ---
 
 <section class="three-truths-section" id="nosotros">
-  <div class="truths-grid reveal-stagger">
-    {truths.map(item => (
-      <div 
-        class="truth-card" 
-        style={`background-color: ${item.bgColor}; background-image: url('${item.bgImage}');`}
-      >
-        <div class="truth-card-inner">
-          <span class="truth-number">{item.num}</span>
-          <h2 class="truth-text" set:html={item.text} />
+  <div class="truths-container">
+    <div class="truths-header reveal-scroll">
+      <span class="section-badge">NUESTRA FILOSOFÍA</span>
+      <h2 class="section-title">El Poder de la Conexión Humana</h2>
+      <p class="section-sub">Tres principios clave que rigen cada activación, campaña y evento de alto impacto.</p>
+    </div>
+
+    <div class="truths-grid reveal-stagger">
+      {truths.map(item => (
+        <div class="truth-card">
+          <div 
+            class="truth-bg" 
+            style={`background-image: url('${item.bgImage}'); background-position: ${item.position};`}
+          ></div>
+          <div class="truth-overlay"></div>
+          <div class="truth-content">
+            <div class="truth-badges">
+              <span class="truth-number">{item.num}</span>
+              <span class="truth-tag">{item.tag}</span>
+            </div>
+            <h3 class="truth-text" set:html={item.text} />
+            <div class="truth-line"></div>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
   .three-truths-section {
     width: 100%;
+    background-color: #030d1d;
+    padding: 100px 24px 110px;
+    position: relative;
     overflow: hidden;
+  }
+
+  .three-truths-section::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 75, 0, 0.08) 0%, rgba(3, 13, 29, 0) 70%);
+    pointer-events: none;
+  }
+
+  .truths-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .truths-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 55px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--color-accent);
+    background: rgba(255, 75, 0, 0.12);
+    border: 1px solid rgba(255, 75, 0, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: #a0aec0;
+    line-height: 1.6;
   }
 
   .truths-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
     width: 100%;
   }
 
   .truth-card {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 110px 60px 130px 70px;
-    display: flex;
-    align-items: center;
     position: relative;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    height: 480px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
   }
 
   .truth-card:hover {
-    filter: brightness(1.02);
+    transform: translateY(-8px);
+    border-color: rgba(255, 75, 0, 0.55);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 75, 0, 0.22);
   }
 
-  .truth-card-inner {
-    max-width: 420px;
+  .truth-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.01);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .truth-card:hover .truth-bg {
+    transform: scale(1.08);
+  }
+
+  /* Deep gradient overlay that guarantees 100% text legibility */
+  .truth-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg, 
+      rgba(4, 13, 26, 0.2) 0%, 
+      rgba(4, 13, 26, 0.65) 45%, 
+      rgba(3, 10, 22, 0.95) 85%,
+      rgba(3, 10, 22, 0.98) 100%
+    );
+    transition: background 0.4s ease;
+  }
+
+  .truth-card:hover .truth-overlay {
+    background: linear-gradient(
+      180deg, 
+      rgba(4, 13, 26, 0.15) 0%, 
+      rgba(4, 13, 26, 0.6) 40%, 
+      rgba(3, 10, 22, 0.94) 85%,
+      rgba(3, 10, 22, 0.98) 100%
+    );
+  }
+
+  .truth-content {
+    position: relative;
+    z-index: 2;
+    padding: 36px 30px;
+    width: 100%;
+  }
+
+  .truth-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
   }
 
   .truth-number {
     display: inline-block;
     color: #ffffff;
+    background: var(--color-orange);
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(255, 75, 0, 0.4);
+  }
+
+  .truth-tag {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    color: var(--color-accent);
+    text-transform: uppercase;
   }
 
   .truth-text {
-    font-size: 1.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
     font-weight: 600;
-    line-height: 1.25;
-    color: #161616;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  :global(.brand-highlight) {
+    color: #ff8533;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(255, 117, 43, 0.4);
+  }
+
+  .truth-line {
+    width: 42px;
+    height: 3px;
+    background: var(--color-orange);
+    border-radius: 2px;
+    margin-top: 18px;
+    transition: width 0.35s ease;
+  }
+
+  .truth-card:hover .truth-line {
+    width: 68px;
   }
 
   @media (max-width: 1024px) {
+    .truths-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .truth-card {
-      padding: 80px 40px 90px 45px;
+      height: 420px;
     }
     .truth-text {
-      font-size: 1.45rem;
+      font-size: 1.35rem;
     }
   }
 
   @media (max-width: 768px) {
+    .three-truths-section {
+      padding: 70px 20px 80px;
+    }
     .truths-grid {
       grid-template-columns: 1fr;
+      gap: 20px;
     }
     .truth-card {
-      padding: 70px 30px;
+      height: 380px;
+    }
+    .truth-content {
+      padding: 28px 22px;
+    }
+    .truth-text {
+      font-size: 1.25rem;
     }
   }
 </style>
